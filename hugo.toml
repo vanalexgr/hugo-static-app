@@ -1,8 +1,4 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
-<<<<<<< HEAD
-theme = 'hugo-pure'
-=======
 theme = 'hello-friend-ng'
->>>>>>> 1a1a4df (initial commit)

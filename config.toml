@@ -1,1 +1,5 @@
 theme = 'hello-friend-ng'
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

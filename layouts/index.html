@@ -1,0 +1,34 @@
+{{ define "body" }}
+    <body class="{{ if .Site.Params.backgroundImage }} background-image" style="background-image: url('{{ .Site.Params.backgroundImage }}');" {{ else }}"{{ end }}>
+{{ end }}
+
+{{ define "main" }}
+    <main>
+        <div>
+            {{ if .Site.Params.Portrait.Path }}
+               <img src="{{ .Site.Params.Portrait.Path }}" class="circle" alt="{{ .Site.Params.Portrait.Alt }}" style="max-width:{{ .Site.Params.Portrait.MaxWidth }}" />
+            {{ end }}
+
+            <h1>{{ .Site.Title }}</h1>
+            
+           
+  ~~~ html
+  <iframe
+  src="http://20.215.234.141/chat/share?shared_id=4ac5a894e3e711ef9a0d0242ac120006&from=chat&auth=QzMjBhZTEwZTNlNTExZWY5ZTJjMDI0Mm"
+  style="width: 100%; height: 100%; min-height: 600px"
+  frameborder="0"
+>
+</iframe>
+~~~
+  
+
+            {{ partial "subtitle.html" . }}
+
+            {{- with .Site.Params.social }}
+                <div>
+                    {{ partial "social-icons.html" . }}
+                </div>
+            {{- end }}
+        </div>
+    </main>
+{{ end }}

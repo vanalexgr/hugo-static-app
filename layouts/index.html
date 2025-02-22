@@ -1,6 +1,7 @@
 {{ define "main" }}
 <main>
   <div>
+
     {{ if .Site.Params.Portrait.Path }}
       <img src="{{ .Site.Params.Portrait.Path }}"
            class="circle"
@@ -10,76 +11,81 @@
 
     <h1>{{ .Site.Title }}</h1>
 
+    <!-- 1) Mobile-friendly viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Menu with iFrame Applications</title>
-  <style>
-    /* Simple styling for clarity */
-    #menu {
-      margin: 20px;
-    }
-    #appFrame {
-      margin: 20px;
-    }
-    button {
-      margin: 5px;
-      padding: 10px;
-      cursor: pointer;
-    }
-  </style>
-  <script>
-    // Show the selected application in the iframe
-    function loadIframe(url) {
-      document.getElementById("menu").style.display = "none";    // Hide the menu
-      document.getElementById("appFrame").style.display = "block"; // Show the iframe container
-      document.getElementById("appIframe").src = url;            // Load the specified page
-    }
+    <!-- 2) Styles (including responsive iframe container) -->
+    <style>
+      /* Adjust margins/padding as needed */
+      #menu {
+        margin: 20px;
+      }
+      #appFrame {
+        margin: 20px;
+        display: none; /* We'll show this dynamically */
+      }
+      button {
+        margin: 5px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .iframe-container {
+        position: relative;
+        width: 100%;
+        /* 16:9 aspect ratio => 9 / 16 = 56.25% */
+        padding-bottom: 56.25%;
+        /* If you prefer 4:3, use 75%; for 1:1, use 100%; etc. */
+      }
+      .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
 
-    // Return to the main menu
-    function goBack() {
-      document.getElementById("menu").style.display = "block";   // Show the menu
-      document.getElementById("appFrame").style.display = "none";  // Hide the iframe container
-      document.getElementById("appIframe").src = "";             // Clear the iframe src
-    }
-  </script>
-</head>
-<body>
+    <!-- 3) Script to switch between menu and iframe -->
+    <script>
+      // Show the selected application in the iframe
+      function loadIframe(url) {
+        document.getElementById("menu").style.display = "none";  // Hide the menu
+        document.getElementById("appFrame").style.display = "block"; // Show the iframe container
+        document.getElementById("appIframe").src = url;          // Load the specified page
+      }
 
-  <!-- MENU SECTION -->
-  <div id="menu">
-    <h2>Select a guideline copilot</h2>
-    <button onclick="loadIframe('/app1.html')">2017 ECS-ESVS PAD</button>
-    <button onclick="loadIframe('/app2.html')">2021 ESVS Venous Thrombosis</button>
-    <button onclick="loadIframe('/app3.html')">2025 ESVS Vascular Trauma</button>
-    <button onclick="loadIframe('/app4.html')">App 4</button>
-    <button onclick="loadIframe('/app5.html')">App 5</button>
-    <button onclick="loadIframe('/app6.html')">App 6</button>
-    <button onclick="loadIframe('/app7.html')">App 7</button>
-    <button onclick="loadIframe('/app8.html')">App 8</button>
-    <button onclick="loadIframe('/app9.html')">App 9</button>
-    <button onclick="loadIframe('/app10.html')">App 10</button>
-  </div>
+      // Return to the main menu
+      function goBack() {
+        document.getElementById("menu").style.display = "block"; // Show the menu
+        document.getElementById("appFrame").style.display = "none"; // Hide the iframe container
+        document.getElementById("appIframe").src = "";           // Clear the iframe src
+      }
+    </script>
 
-  <!-- IFRAME SECTION -->
-  <div id="appFrame" style="display: none;">
-    <button onclick="goBack()">Back to Menu</button>
-    <br /><br />
-    <iframe
-      id="appIframe"
-      width="800"
-      height="600"
-      frameborder="0"
-      style="border: 1px solid #ccc;">
-    </iframe>
-  </div>
+    <!-- MENU SECTION -->
+    <div id="menu">
+      <h2>Select a guideline copilot</h2>
+      <button onclick="loadIframe('/app1.html')">2017 ECS-ESVS PAD</button>
+      <button onclick="loadIframe('/app2.html')">2021 ESVS Venous Thrombosis</button>
+      <button onclick="loadIframe('/app3.html')">2025 ESVS Vascular Trauma</button>
+      <button onclick="loadIframe('/app4.html')">App 4</button>
+      <button onclick="loadIframe('/app5.html')">App 5</button>
+      <button onclick="loadIframe('/app6.html')">App 6</button>
+      <button onclick="loadIframe('/app7.html')">App 7</button>
+      <button onclick="loadIframe('/app8.html')">App 8</button>
+      <button onclick="loadIframe('/app9.html')">App 9</button>
+      <button onclick="loadIframe('/app10.html')">App 10</button>
+    </div>
 
-</body>
-</html>
-
-  
+    <!-- IFRAME SECTION (hidden by default) -->
+    <div id="appFrame">
+      <button onclick="goBack()">Back to Menu</button>
+      <div class="iframe-container">
+        <!-- Remove explicit width/height -->
+        <iframe id="appIframe"></iframe>
+      </div>
+    </div>
 
     {{ partial "subtitle.html" . }}
 
@@ -88,6 +94,7 @@
         {{ partial "social-icons.html" . }}
       </div>
     {{- end }}
+
   </div>
 </main>
 {{ end }}

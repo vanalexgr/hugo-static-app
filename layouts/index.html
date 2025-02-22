@@ -11,30 +11,34 @@
 
     <h1>{{ .Site.Title }}</h1>
 
-    <!-- 1) Mobile-friendly viewport meta tag -->
+    <!-- Mobile-friendly viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- 2) Styles (including responsive iframe container) -->
     <style>
-      /* Adjust margins/padding as needed */
+      /* Basic styling */
       #menu {
         margin: 20px;
-      }
-      #appFrame {
-        margin: 20px;
-        display: none; /* We'll show this dynamically */
+        text-align: center;
       }
       button {
         margin: 5px;
         padding: 10px;
         cursor: pointer;
       }
+
+      /* Hide the iframe section by default */
+      #appFrame {
+        display: none;
+      }
+
+      /* A container that takes nearly the full screen height */
       .iframe-container {
         position: relative;
         width: 100%;
-        /* 16:9 aspect ratio => 9 / 16 = 56.25% */
-        padding-bottom: 56.25%;
-        /* If you prefer 4:3, use 75%; for 1:1, use 100%; etc. */
+        /* Subtract extra space for the back button; adjust as needed */
+        height: calc(100vh - 60px);
+        margin: 0;
+        padding: 0;
       }
       .iframe-container iframe {
         position: absolute;
@@ -42,24 +46,22 @@
         left: 0;
         width: 100%;
         height: 100%;
-        border: 0;
+        border: none;
+        /* Hide scrollbars inside the iframe */
+        overflow: hidden;
       }
     </style>
 
-    <!-- 3) Script to switch between menu and iframe -->
     <script>
-      // Show the selected application in the iframe
       function loadIframe(url) {
-        document.getElementById("menu").style.display = "none";  // Hide the menu
-        document.getElementById("appFrame").style.display = "block"; // Show the iframe container
-        document.getElementById("appIframe").src = url;          // Load the specified page
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("appFrame").style.display = "block";
+        document.getElementById("appIframe").src = url;
       }
-
-      // Return to the main menu
       function goBack() {
-        document.getElementById("menu").style.display = "block"; // Show the menu
-        document.getElementById("appFrame").style.display = "none"; // Hide the iframe container
-        document.getElementById("appIframe").src = "";           // Clear the iframe src
+        document.getElementById("menu").style.display = "block";
+        document.getElementById("appFrame").style.display = "none";
+        document.getElementById("appIframe").src = "";
       }
     </script>
 
@@ -69,20 +71,18 @@
       <button onclick="loadIframe('/app1.html')">2017 ECS-ESVS PAD</button>
       <button onclick="loadIframe('/app2.html')">2021 ESVS Venous Thrombosis</button>
       <button onclick="loadIframe('/app3.html')">2025 ESVS Vascular Trauma</button>
-      <button onclick="loadIframe('/app4.html')">App 4</button>
-      <button onclick="loadIframe('/app5.html')">App 5</button>
-      <button onclick="loadIframe('/app6.html')">App 6</button>
-      <button onclick="loadIframe('/app7.html')">App 7</button>
-      <button onclick="loadIframe('/app8.html')">App 8</button>
-      <button onclick="loadIframe('/app9.html')">App 9</button>
+      <!-- ... up to App 10 ... -->
       <button onclick="loadIframe('/app10.html')">App 10</button>
     </div>
 
-    <!-- IFRAME SECTION (hidden by default) -->
+    <!-- IFRAME SECTION (fills almost the entire screen) -->
     <div id="appFrame">
-      <button onclick="goBack()">Back to Menu</button>
+      <!-- A small top bar for the Back button -->
+      <div style="text-align:center; padding: 5px;">
+        <button onclick="goBack()">Back to Menu</button>
+      </div>
+
       <div class="iframe-container">
-        <!-- Remove explicit width/height -->
         <iframe id="appIframe"></iframe>
       </div>
     </div>

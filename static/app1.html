@@ -2,60 +2,212 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <title>Ragflow Chat Embed</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application 1</title>
-
-  <!-- iFrame Resizer (Parent) Script -->
-  <!-- Download from https://github.com/davidjbradshaw/iframe-resizer/releases -->
-  <!-- or include via a CDN, for example: -->
-  <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.6/js/iframeResizer.min.js"></script>
-
   <style>
-    html, body {
+    /* Basic reset */
+    body {
       margin: 0;
       padding: 0;
-      /* Let the page scroll, no forced overflow hidden here */
-      overflow-x: hidden; /* only hide horizontal if you like */
       font-family: sans-serif;
     }
     .chat-container {
-      /* Some padding around your content if you want */
-      padding: 1rem;
+      width: 100%;
+      max-width: 600px; /* Limit width if you want */
+      margin: 1em auto; /* Center horizontally */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
-    .title {
-      margin-bottom: 1rem;
-      font-size: 1.25rem;
+    .chat-header {
+      background: #f5f5f5;
+      padding: 1em;
+      border-bottom: 1px solid #ddd;
       font-weight: bold;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 1em;
+      overflow-y: auto; /* The entire page can still scroll,
+                          but this container also scrolls if needed. */
+      max-height: 400px; /* If you want the chat area to be capped,
+                            remove if you want full page scroll only. */
+    }
+    .message {
+      margin-bottom: 0.5em;
+      line-height: 1.4em;
+    }
+    .message.assistant {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .message.user {
+      color: #2980b9;
+    }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 0.75em;
+      border: none;
+      outline: none;
+    }
+    .chat-input button {
+      padding: 0.75em 1em;
+      cursor: pointer;
+      border: none;
+      background: #3498db;
+      color: #fff;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .chat-input button:hover {
+      background: #2980b9;
     }
   </style>
 </head>
-
 <body>
-  <div class="chat-container">
-    <div class="title">Welcome to the Assistant!</div>
 
-    <!-- The iframe (initially with minimal height) -->
-    <iframe
-      id="chatIframe"
-      src="https://ragflow.clinicalguidelines.io/chat/share?shared_id=4ac5a894e3e711ef9a0d0242ac120006&from=chat&auth=QzMjBhZTEwZTNlNTExZWY5ZTJjMDI0Mm"
-      frameborder="0"
-      scrolling="no"  <!-- turn off iframe's own scroll -->
-      style="
-        display: block;
-        width: 100%;
-        min-height: 100px;
-      "
-    ></iframe>
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header">Welcome to the Assistant!</div>
+  <div class="chat-messages" id="messages"></div>
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Type your question..." />
+    <button id="sendBtn">Send</button>
   </div>
+</div>
 
-  <script>
-    // Initialize iFrame Resizer on #chatIframe
-    iFrameResize({
-      log: false,          // Set to true for debugging
-      checkOrigin: false,  // If the domain is different, set false
-      // heightCalculationMethod: 'bodyScroll', // Additional method if needed
-    }, '#chatIframe');
-  </script>
+<script>
+  // -- CONFIG --
+  const RAGFLOW_API_BASE = 'https://ragflow.clinicalguidelines.io/api';
+  const ASSISTANT_ID = '4ac5a894e3e711ef9a0d0242ac120006';
+  const API_KEY = 'ragflow-QzMjBhNjkwZTNlNTExZWY5ZTJjMDI0Mm'; // your personal key
+
+  let sessionId = null;  // We'll store the session ID from the server
+
+  const messagesEl = document.getElementById('messages');
+  const inputEl = document.getElementById('userInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  // --- 1) CREATE A NEW SESSION ON PAGE LOAD ---
+  window.addEventListener('DOMContentLoaded', async () => {
+    try {
+      sessionId = await createSession();
+      console.log('Created session:', sessionId);
+
+      // Optionally fetch any initial message or system introduction from the assistant
+      // We'll just skip that for simplicity unless your API auto-sends a welcome message
+    } catch (err) {
+      console.error('Error creating session:', err);
+    }
+  });
+
+  // --- 2) HANDLE SENDING A MESSAGE ---
+  sendBtn.addEventListener('click', () => {
+    sendMessage();
+  });
+
+  // Also send on "Enter" key
+  inputEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  // --- CREATE SESSION ---
+  async function createSession() {
+    // According to Ragflow docs:
+    // POST /chat/sessions
+    //  body: { "assistant_id": "4ac5a894e3e711ef9a0d0242ac120006" }
+    const response = await fetch(`${RAGFLOW_API_BASE}/chat/sessions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({
+        assistant_id: ASSISTANT_ID
+        // You can add "title", "context", etc. if the API supports it
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to create session. Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    // The API likely returns { "id": "...", "assistant_id": "...", ... }
+    return data.id; // Store this for subsequent requests
+  }
+
+  // --- SEND MESSAGE ---
+  async function sendMessage() {
+    const text = inputEl.value.trim();
+    if (!text || !sessionId) return;
+
+    // Clear input
+    inputEl.value = '';
+
+    // Display message as "user"
+    addMessage(text, 'user');
+
+    // According to docs:
+    // POST /chat/sessions/:id/messages
+    //  body: { "role": "user", "content": "Hello" }
+    try {
+      const res = await fetch(`${RAGFLOW_API_BASE}/chat/sessions/${sessionId}/messages`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+          role: 'user',
+          content: text
+        })
+      });
+
+      if (!res.ok) {
+        throw new Error(`Error sending message: ${res.status}`);
+      }
+
+      const data = await res.json();
+      // data might look like: { "role": "assistant", "content": "response..." }
+      // Or it might include a list of messages. Adjust as needed.
+      if (data && data.role === 'assistant') {
+        addMessage(data.content, 'assistant');
+      } else {
+        // Possibly the entire chat session messages
+        // If data.messages is an array, display the last one
+        if (Array.isArray(data.messages)) {
+          const lastMsg = data.messages[data.messages.length - 1];
+          if (lastMsg && lastMsg.role === 'assistant') {
+            addMessage(lastMsg.content, 'assistant');
+          }
+        }
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  // --- ADD A MESSAGE TO THE CHAT LOG ---
+  function addMessage(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('message', sender);
+    msgDiv.textContent = (sender === 'assistant' ? 'Assistant: ' : 'You: ') + text;
+    messagesEl.appendChild(msgDiv);
+
+    // Auto-scroll to bottom
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+</script>
+
 </body>
 </html>
 

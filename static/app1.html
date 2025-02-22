@@ -1,229 +1,236 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Ragflow Chat - No Iframe</title>
+  <meta charset="UTF-8" />
+  <title>Ragflow Chat (Template CSS)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
+    /* Mimic your previous "template" style with 20px margins, simple button styling, etc. */
+
+    /* Main container to match your margin style */
+    #chatContainer {
+      margin: 20px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      max-width: 600px; 
+      border-radius: 4px;
     }
-    .chat-container {
-      max-width: 600px; /* limit width if desired */
-      margin: 1em auto;
+
+    /* Header text style (similar to your prior headings) */
+    #chatHeader {
+      margin-bottom: 1em;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Messages area with optional scrolling region */
+    #messages {
       border: 1px solid #ccc;
       border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .chat-header {
-      background: #f5f5f5;
       padding: 1em;
-      border-bottom: 1px solid #ddd;
-      font-weight: bold;
-    }
-    .chat-messages {
-      flex: 1;
-      padding: 1em;
-      overflow-y: auto; /* Scroll within this box or remove for full page scroll */
+      margin-bottom: 1em;
       max-height: 400px; 
+      overflow-y: auto;  /* Let the chat messages scroll within this box */
     }
+
+    /* Each individual message */
     .message {
       margin-bottom: 0.75em;
       line-height: 1.4em;
     }
-    .message.user { color: #2c3e50; }
-    .message.assistant { color: #1c7ed6; font-weight: bold; }
-    .chat-input {
-      border-top: 1px solid #ddd;
+    .message.user {
+      color: #2c3e50;
+    }
+    .message.assistant {
+      color: #1c7ed6; 
+      font-weight: bold;
+    }
+
+    /* Input area */
+    #chatInput {
       display: flex;
     }
-    .chat-input input {
+    #chatInput input {
       flex: 1;
       padding: 0.75em;
-      border: none;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
       outline: none;
     }
-    .chat-input button {
-      padding: 0.75em 1em;
+
+    /* Button styling to match your “template” approach */
+    button {
+      margin: 5px;
+      padding: 10px;
       cursor: pointer;
       border: none;
+      border-radius: 0 4px 4px 0;
       background: #1c7ed6;
       color: #fff;
       font-weight: bold;
       transition: background 0.2s;
     }
-    .chat-input button:hover {
+    button:hover {
       background: #1864ab;
     }
   </style>
 </head>
 <body>
 
-<div class="chat-container">
-  <div class="chat-header">Welcome to the Assistant!</div>
+  <div id="chatContainer">
+    <div id="chatHeader">Welcome to the Assistant!</div>
 
-  <div class="chat-messages" id="messages">
-    <!-- Chat messages will appear here -->
+    <div id="messages"></div>
+
+    <div id="chatInput">
+      <input type="text" id="userInput" placeholder="Type your question..." />
+      <button id="sendBtn">Send</button>
+    </div>
   </div>
 
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Type your question..." />
-    <button id="sendBtn">Send</button>
-  </div>
-</div>
+  <script>
+    // -----------------------------
+    // CONFIG
+    // -----------------------------
+    const RAGFLOW_BASE = "https://ragflow.clinicalguidelines.io";
+    const CHAT_ID = "4ac5a894e3e711ef9a0d0242ac120006"; 
+    const API_KEY = "ragflow-QzMjBhNjkwZTNlNTExZWY5ZTJjMDI0Mm";
+    const COMPLETIONS_URL = `${RAGFLOW_BASE}/api/v1/chats/${CHAT_ID}/completions`;
 
-<script>
-// -------------------------------
-// CONFIG
-// -------------------------------
-const API_BASE = "https://ragflow.clinicalguidelines.io"; 
-const CHAT_ID = "4ac5a894e3e711ef9a0d0242ac120006"; 
-const API_KEY = "ragflow-QzMjBhNjkwZTNlNTExZWY5ZTJjMDI0Mm"; 
+    // We'll store the sessionId after the first request (if not provided)
+    let sessionId = null;
 
-// We'll store session_id after the first request
-let sessionId = null;
+    // DOM references
+    const messagesEl = document.getElementById("messages");
+    const inputEl = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
 
-// Get references to DOM elements
-const messagesEl = document.getElementById("messages");
-const inputEl = document.getElementById("userInput");
-const sendBtn = document.getElementById("sendBtn");
-
-// Listen for button clicks and "Enter" key
-sendBtn.addEventListener("click", sendMessage);
-inputEl.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    sendMessage();
-  }
-});
-
-// -------------------------------
-// SEND MESSAGE LOGIC
-// -------------------------------
-async function sendMessage() {
-  const question = inputEl.value.trim();
-  if (!question) return;
-
-  // Clear the input field
-  inputEl.value = "";
-
-  // Show user's message
-  addMessage(question, "user");
-
-  try {
-    // Build request body
-    // If we already have a sessionId, include it. Otherwise, the API will create one.
-    const requestBody = {
-      question: question,
-      stream: false,      // For chunked streaming, set true; but that requires special parsing
-    };
-    if (sessionId) {
-      requestBody.session_id = sessionId;
-    }
-    
-    // Make the POST request
-    //  POST /api/v1/chats/{chat_id}/completions
-    //  Headers: Authorization: Bearer <API_KEY>, Content-Type: application/json
-    const res = await fetch(`${API_BASE}/api/v1/chats/${CHAT_ID}/completions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify(requestBody)
+    // Attach event handlers for user input
+    sendBtn.addEventListener("click", handleSend);
+    inputEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleSend();
+      }
     });
 
-    if (!res.ok) {
-      throw new Error(`Request failed: ${res.status} ${res.statusText}`);
-    }
+    // 1) AUTO-START THE CHAT ON PAGE LOAD
+    window.addEventListener("DOMContentLoaded", autoStartChat);
 
-    // The server may return JSON, or chunked lines if streaming was true
-    // For non-streaming, we expect a normal JSON object
-    const text = await res.text();
-    const lines = text.trim().split("\n");
-
-    // The API sometimes returns multiple lines (e.g., chunked style)
-    // but with "stream": false, we *should* only get one line if successful.
-    // We'll parse the last line if multiple appear:
-    let parsed = null;
-    for (let line of lines) {
-      if (line.startsWith("data:")) {
-        line = line.replace("data:", "").trim();
-      }
+    async function autoStartChat() {
+      // We'll send a hidden "Hello" to prompt the assistant's welcome
       try {
-        parsed = JSON.parse(line);
-        // each chunk might have { code, data } 
-        // if data is `true`, it's the final chunk in streaming mode
+        await sendRequest("Hello", false); 
       } catch (err) {
-        console.warn("Failed to parse line:", line, err);
+        console.error("Error auto-starting chat:", err);
       }
     }
 
-    if (!parsed || typeof parsed !== "object") {
-      throw new Error("No valid JSON parsed from response.");
+    // 2) HANDLE USER MESSAGES
+    async function handleSend() {
+      const question = inputEl.value.trim();
+      if (!question) return;
+      inputEl.value = ""; // Clear input
+
+      // Show user's message
+      addMessage(question, "user");
+
+      // Send to Ragflow
+      try {
+        await sendRequest(question, true);
+      } catch (error) {
+        console.error("Error while sending question:", error);
+        addMessage("Error: " + error.message, "assistant");
+      }
     }
 
-    // Check the "code" and "data" fields
-    if (parsed.code !== 0) {
-      throw new Error(parsed.message || "Ragflow error");
+    /**
+     * Make a streaming request to the Ragflow API.
+     * question = string
+     * showUserMsg = boolean (if false, we won't display "Hello" from user)
+     */
+    async function sendRequest(question, showUserMsg) {
+      // Build request body
+      const body = {
+        question: question,
+        stream: true
+      };
+      if (sessionId) {
+        body.session_id = sessionId;
+      }
+
+      const response = await fetch(COMPLETIONS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify(body)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with ${response.status} ${response.statusText}`);
+      }
+
+      // Read streaming lines
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder("utf-8");
+      let partialAssistantMsg = "";
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        const lines = chunk.split("\n");
+        for (let line of lines) {
+          line = line.trim();
+          if (!line) continue;
+          if (line.startsWith("data:")) {
+            let jsonString = line.replace("data:", "").trim();
+            try {
+              const parsed = JSON.parse(jsonString);
+              if (parsed.code !== 0) {
+                throw new Error(parsed.message || "Ragflow error");
+              }
+              if (parsed.data === true) {
+                // final chunk
+                break;
+              }
+              const chunkData = parsed.data;
+              if (chunkData.session_id && !sessionId) {
+                sessionId = chunkData.session_id;
+              }
+              if (typeof chunkData.answer === "string") {
+                partialAssistantMsg += chunkData.answer;
+              }
+            } catch (err) {
+              console.warn("Could not parse chunk:", line, err);
+            }
+          }
+        }
+      }
+
+      // If we got any assistant text, show it
+      if (partialAssistantMsg) {
+        addMessage(partialAssistantMsg.trim(), "assistant");
+      }
     }
 
-    // The final chunk might be `data: true` if streaming, 
-    // or an object with "answer", "session_id", etc.
-    const responseData = parsed.data;
-    if (responseData === true) {
-      // This means it's the final chunk in streaming mode
-      // but we used stream: false, so let's ignore
-      return;
+    // HELPER: ADD A MESSAGE TO THE CHAT LOG
+    function addMessage(text, role) {
+      const div = document.createElement("div");
+      div.classList.add("message", role);
+      if (role === "assistant") {
+        div.textContent = "Assistant: " + text;
+      } else {
+        div.textContent = "You: " + text;
+      }
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
     }
-
-    // The normal response might look like:
-    // {
-    //   code: 0,
-    //   data: {
-    //     "answer": "...",
-    //     "session_id": "...",
-    //     ...
-    //   }
-    // }
-    const answer = responseData.answer;
-    if (!sessionId && responseData.session_id) {
-      // Store session id for subsequent requests
-      sessionId = responseData.session_id;
-      console.log("New session_id:", sessionId);
-    }
-
-    // Display the assistant's message
-    if (answer) {
-      addMessage(answer, "assistant");
-    }
-
-  } catch (err) {
-    console.error(err);
-    addMessage("Error: " + err.message, "assistant");
-  }
-}
-
-// -------------------------------
-// HELPER: ADD MESSAGE TO THE DOM
-// -------------------------------
-function addMessage(msgText, role) {
-  const msgDiv = document.createElement("div");
-  msgDiv.classList.add("message", role);
-  // "role" is either "user" or "assistant"
-  // You can customize formatting: "You: " or "Assistant: "
-  msgDiv.textContent = (role === "assistant" ? "Assistant: " : "You: ") + msgText;
-  messagesEl.appendChild(msgDiv);
-  
-  // auto-scroll to bottom if the container has overflow
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-}
-</script>
-
+  </script>
 </body>
 </html>
 

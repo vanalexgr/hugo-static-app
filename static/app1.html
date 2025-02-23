@@ -1,15 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Application 1</title>
+  <title>Dynamic iFrame Injection</title>
+  <style>
+    /* Ensure the html/body are sized appropriately if you want 100% height. */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #iframe-container {
+      width: 100%;
+      height: 100%;
+      /* or set a fixed height, e.g. `height: 800px;` */
+    }
+  </style>
 </head>
 <body>
-<iframe
-src="https://ragflow.clinicalguidelines.io/chat/share?shared_id=4ac5a894e3e711ef9a0d0242ac120006&from=chat&auth=QzMjBhZTEwZTNlNTExZWY5ZTJjMDI0Mm"
-style="width: 100%; height: 100%; min-height: 600px"
-frameborder="0"
->
-</iframe>
+
+<div id="iframe-container"></div>
+
+<script>
+  (function() {
+    var container = document.getElementById("iframe-container");
+    var iframe = document.createElement("iframe");
+
+    iframe.src = "https://ragflow.clinicalguidelines.io/chat/share?shared_id=4ac5a894e3e711ef9a0d0242ac120006&from=chat&auth=QzMjBhZTEwZTNlNTExZWY5ZTJjMDI0Mm";
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.minHeight = "600px";
+    iframe.frameBorder = "0";
+
+    container.appendChild(iframe);
+  })();
+</script>
+
 </body>
 </html>
+

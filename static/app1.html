@@ -4,27 +4,28 @@
   <meta charset="UTF-8" />
   <title>Child Page Embedding Ragflow</title>
   <style>
+    /* The child page itself is displayed inside the parent's <iframe> */
+
     html, body {
       margin: 0;
       padding: 0;
-      /* Let the child page be as tall as needed, 
-         but we will not show any scroll bar here. */
+      /* Force no scroll bar in the child if content overflows */
       overflow: hidden;
       height: 100%;
     }
+
+    /* Container for the Ragflow iframe */
     .ragflow-container {
+      /* match parent's iframe area */
       width: 100%;
-      height: 100vh; /* or you can use a fixed height if you prefer */
-      /* If you only want minimum 600px, do:
-         height: auto;
-         min-height: 600px; 
-      */
+      height: 100%;
     }
     .ragflow-container iframe {
       width: 100%;
       height: 100%;
       border: none;
-      overflow: hidden; /* hide the iframe's scroll bar */
+      /* Also hide scroll bar in the Ragflow iframe */
+      overflow: hidden;
     }
   </style>
 </head>

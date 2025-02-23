@@ -4,40 +4,40 @@
   <meta charset="UTF-8" />
   <title>Child Page Embedding Ragflow</title>
   <style>
-    /* The child page itself is displayed inside the parent's <iframe> */
-
     html, body {
       margin: 0;
       padding: 0;
-      /* Force no scroll bar in the child if content overflows */
-      overflow: hidden;
-      height: 100%;
+      /* Use 100vh so the container always fills the viewport’s height */
+      height: 100vh;
+      width: 100%;
+      overflow: hidden; /* Hide any scrollbar */
+      box-sizing: border-box;
     }
 
-    /* Container for the Ragflow iframe */
     .ragflow-container {
-      /* match parent's iframe area */
+      position: relative;
       width: 100%;
       height: 100%;
+      overflow: hidden; /* just to be safe */
     }
+
     .ragflow-container iframe {
+      position: absolute;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
       border: none;
-      /* Also hide scroll bar in the Ragflow iframe */
       overflow: hidden;
     }
   </style>
 </head>
 <body>
-
-<div class="ragflow-container">
-  <iframe
-    src="https://ragflow.clinicalguidelines.io/chat/share?shared_id=4ac5a894e3e711ef9a0d0242ac120006&from=chat&auth=QzMjBhZTEwZTNlNTExZWY5ZTJjMDI0Mm"
-    scrolling="no"
-  ></iframe>
-</div>
-
+  <div class="ragflow-container">
+    <iframe
+      src="https://ragflow.clinicalguidelines.io/chat/share?shared_id=4ac5a894e3e711ef9a0d0242ac120006&from=chat&auth=QzMjBhZTEwZTNlNTExZWY5ZTJjMDI0Mm"
+      scrolling="no"
+    ></iframe>
+  </div>
 </body>
 </html>
 

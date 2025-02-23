@@ -15,7 +15,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
-      /* Basic styling */
+      /* Basic styling for the parent page */
+      html, body {
+        margin: 0;
+        padding: 0;
+        /* Let the parent page scroll if content is tall */
+        overflow-y: auto;
+        height: 100%;
+      }
       #menu {
         margin: 20px;
         text-align: center;
@@ -39,6 +46,8 @@
         height: calc(100vh - 60px);
         margin: 0;
         padding: 0;
+        /* No overflow here so the parent can scroll if needed */
+        overflow: hidden;
       }
       .iframe-container iframe {
         position: absolute;
@@ -47,7 +56,7 @@
         width: 100%;
         height: 100%;
         border: none;
-        /* Hide scrollbars inside the iframe */
+        /* Hide scrollbars inside the iframe if any appear */
         overflow: hidden;
       }
     </style>

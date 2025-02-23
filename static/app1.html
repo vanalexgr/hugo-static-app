@@ -1,136 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Chat with Page-Level Scrolling</title>
-
-  <!-- (Optional) Include Marked.js for Markdown parsing -->
-  <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
-
+  <meta charset="UTF-8" />
+  <title>Child Page Embedding Ragflow</title>
   <style>
-    /* Basic reset and page-level styling */
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      background: #f5f5f5; /* Light gray background */
+      /* Let the child page be as tall as needed, 
+         but we will not show any scroll bar here. */
+      overflow: hidden;
+      height: 100%;
     }
-
-    /* Main chat container */
-    .chat-container {
-      max-width: 600px;
-      margin: 2em auto;  /* Centers the container on the page */
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      background: #fff;
-      /* Notice we're NOT restricting height or overflow here.
-         The entire page will scroll as content grows. */
+    .ragflow-container {
+      width: 100%;
+      height: 100vh; /* or you can use a fixed height if you prefer */
+      /* If you only want minimum 600px, do:
+         height: auto;
+         min-height: 600px; 
+      */
     }
-
-    /* Header area */
-    .chat-header {
-      background: #f5f5f5;
-      padding: 1em;
-      border-bottom: 1px solid #ddd;
-      font-weight: bold;
-    }
-
-    /* Messages area - no max-height or overflow */
-    .chat-messages {
-      /* Let this container expand naturally;
-         the browser page handles scrolling. */
-      padding: 1em;
-      background: #fafafa;
-    }
-
-    /* Simple bubble-style messages */
-    .message {
-      margin-bottom: 0.75em;
-      line-height: 1.4em;
-    }
-    .message.user {
-      color: #2c3e50;
-    }
-    .message.assistant {
-      color: #1c7ed6;
-      font-weight: bold;
-    }
-
-    /* Input area at the bottom */
-    .chat-input {
-      border-top: 1px solid #ddd;
-      display: flex;
-    }
-    .chat-input input {
-      flex: 1;
-      padding: 0.75em;
+    .ragflow-container iframe {
+      width: 100%;
+      height: 100%;
       border: none;
-      outline: none;
-    }
-    .chat-input button {
-      padding: 0.75em 1em;
-      cursor: pointer;
-      border: none;
-      background: #1c7ed6;
-      color: #fff;
-      font-weight: bold;
-      transition: background 0.2s;
-    }
-    .chat-input button:hover {
-      background: #1864ab;
+      overflow: hidden; /* hide the iframe's scroll bar */
     }
   </style>
 </head>
 <body>
 
-<div class="chat-container">
-  <div class="chat-header">Welcome to the Assistant!</div>
-
-  <div class="chat-messages" id="messages">
-    <!-- Chat messages will be appended here -->
-  </div>
-
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Type your question..." />
-    <button id="sendBtn">Send</button>
-  </div>
+<div class="ragflow-container">
+  <iframe
+    src="https://ragflow.clinicalguidelines.io/chat/share?shared_id=4ac5a894e3e711ef9a0d0242ac120006&from=chat&auth=QzMjBhZTEwZTNlNTExZWY5ZTJjMDI0Mm"
+    scrolling="no"
+  ></iframe>
 </div>
-
-<script>
-  // Example JavaScript to append messages and handle "Send" clicks
-  const messagesEl = document.getElementById("messages");
-  const userInput = document.getElementById("userInput");
-  const sendBtn = document.getElementById("sendBtn");
-
-  // Mock function to add a message
-  function addMessage(text, role) {
-    const div = document.createElement("div");
-    div.classList.add("message", role);
-    // If you want Markdown for assistant messages:
-    //   div.innerHTML = marked.parse(text);
-    // Otherwise, just plain text:
-    div.textContent = (role === "assistant" ? "Assistant: " : "You: ") + text;
-
-    messagesEl.appendChild(div);
-  }
-
-  // Handle user sending a message
-  sendBtn.addEventListener("click", () => {
-    const text = userInput.value.trim();
-    if (!text) return;
-
-    // Show user's message
-    addMessage(text, "user");
-    userInput.value = "";
-
-    // Simulate an assistant reply after a short delay
-    setTimeout(() => {
-      addMessage("This is the assistant's reply.", "assistant");
-    }, 1000);
-  });
-</script>
 
 </body>
 </html>

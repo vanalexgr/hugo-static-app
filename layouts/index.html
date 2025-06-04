@@ -11,56 +11,42 @@
 
     <h1>{{ .Site.Title }}</h1>
 
-    <!-- Mobile-friendly viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div style="text-align: center; max-width: 800px; margin: 2rem auto;">
+      <h2>An advanced AI clinical assistant using Retrieval-Augmented Generation (RAG)</h2>
+      <p style="font-size: 1.1rem; line-height: 1.6;">
+        ClinicalGuidelines.io combines GraphRAG and DeepSeek to transform complex clinical practice guidelines into fast,
+        accurate, and citation-backed answers. Built on the ESVS guidelines and validated against official
+        clinical questions, our chatbot matches expert-level interpretation with transparency and reliability.
+      </p>
 
-    <style>
-      /* Parent page styling */
-      html, body {
-        margin: 0;
-        padding: 0;
-        /* Let the parent page scroll if it has more content than the viewport */
-        overflow-y: auto;
-        height: 100%;
-      }
+      <ul style="text-align: left; margin: 2rem auto; max-width: 600px; line-height: 1.6;">
+        <li>📚 Expert-level interpretation of vascular guidelines</li>
+        <li>🔗 Graph-based knowledge retrieval for deeper reasoning</li>
+        <li>📎 Evidence-based answers with class/level citations</li>
+        <li>🔒 No hallucinations, full transparency</li>
+      </ul>
 
-      #menu {
-        margin: 20px;
-        text-align: center;
-      }
-      button {
-        margin: 5px;
-        padding: 10px;
-        cursor: pointer;
-      }
+      <!-- Call-to-action -->
+      <div id="menu" style="margin-top: 2rem;">
+        <button onclick="loadIframe('https://chat.clinicalguidelines.io/')"
+                style="background-color: #0077cc; color: white; padding: 1rem 2rem; font-size: 1.2rem; border: none; border-radius: 8px; cursor: pointer;">
+          Sign up for Early Access
+        </button>
+      </div>
 
-      /* Hide the iframe section by default */
-      #appFrame {
-        display: none;
-      }
-
-      /* The container that hosts the child page */
-      .iframe-container {
-        position: relative;
-        width: 100%;
-        /* Fill nearly the entire viewport minus space for the back button */
-        height: calc(100vh - 60px);
-        margin: 0;
-        padding: 0;
-        overflow: hidden; /* No scroll bar in the container itself */
-      }
-
-      .iframe-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        /* Hide any scrollbar that might appear in the child */
-        overflow: hidden;
-      }
-    </style>
+      <!-- IFRAME SECTION -->
+      <div id="appFrame" style="display:none;">
+        <div style="text-align:center; margin-top: 1rem;">
+          <button onclick="goBack()"
+                  style="background: none; color: #0077cc; border: none; text-decoration: underline; cursor: pointer;">
+            ← Back to Info
+          </button>
+        </div>
+        <div class="iframe-container">
+          <iframe id="appIframe"></iframe>
+        </div>
+      </div>
+    </div>
 
     <script>
       function loadIframe(url) {
@@ -75,27 +61,7 @@
       }
     </script>
 
-    <!-- MENU SECTION -->
-    <div id="menu">
-      <h2>Select a guideline copilot</h2>
-      <button onclick="loadIframe('/app1.html')">2017 ECS-ESVS PAD</button>
-      <button onclick="loadIframe('/app2.html')">2023 ESVS Antithrombotic Therapy</button>
-      <!-- ... up to App 10 ... -->
-      <button onclick="loadIframe('/app10.html')">App 10</button>
-    </div>
-
-    <!-- IFRAME SECTION (fills almost the entire screen) -->
-    <div id="appFrame">
-      <!-- A small top bar for the Back button -->
-      <div style="text-align:center; padding: 5px;">
-        <button onclick="goBack()">Back to Menu</button>
-      </div>
-
-      <div class="iframe-container">
-        <iframe id="appIframe"></iframe>
-      </div>
-    </div>
-
+    <!-- Ensure original footer/partials remain intact -->
     {{ partial "subtitle.html" . }}
     {{- with .Site.Params.social }}
       <div>

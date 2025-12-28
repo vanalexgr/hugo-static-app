@@ -47,6 +47,7 @@ h1, h2, h3, h4 {
     padding: 0 2rem;
 }
 
+/* --- NAVIGATION --- */
 nav {
     position: fixed;
     top: 0;
@@ -67,11 +68,13 @@ nav {
     align-items: center;
 }
 
-/* Updated Logo Styles */
+/* Updated Large Logo */
 .nav-logo {
-    height: 45px;
+    height: 80px; 
     width: auto;
     display: block;
+    max-width: 250px;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -109,6 +112,7 @@ nav {
     transition: var(--transition);
 }
 
+/* --- BUTTONS --- */
 .btn-primary {
     display: inline-block;
     background: var(--accent-blue);
@@ -150,6 +154,7 @@ nav {
     font-size: 1.1rem;
 }
 
+/* --- HERO SECTION --- */
 .hero {
     background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-navy) 100%);
     color: var(--text-light);
@@ -164,7 +169,7 @@ nav {
     z-index: 1;
 }
 
-/* Badge Group for Hero */
+/* Badges */
 .badge-group {
     display: flex;
     gap: 10px;
@@ -220,6 +225,7 @@ nav {
     flex-wrap: wrap;
 }
 
+/* --- SECTIONS --- */
 section {
     padding: 5rem 0;
 }
@@ -261,6 +267,7 @@ section h2 {
     opacity: 0.9;
 }
 
+/* --- MISSION GRID --- */
 .mission-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -296,6 +303,7 @@ section h2 {
     color: var(--text-muted);
 }
 
+/* --- STATS & CHARTS --- */
 .chart-container {
     background: rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
@@ -339,6 +347,7 @@ section h2 {
     font-size: 0.9rem;
 }
 
+/* --- FEATURES GRID --- */
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -381,7 +390,7 @@ section h2 {
     line-height: 1.8;
 }
 
-/* Updated Team Grid */
+/* --- TEAM GRID (UPDATED) --- */
 .team-grid {
     display: flex;
     justify-content: center;
@@ -395,8 +404,11 @@ section h2 {
     border-radius: var(--radius-md);
     text-align: center;
     box-shadow: var(--shadow-sm);
+
+    /* Flex sizing for 5 members */
     flex: 1 1 300px;
     max-width: 350px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -420,6 +432,7 @@ section h2 {
     font-size: 0.95rem;
 }
 
+/* --- CONTACT FORM --- */
 .contact-form {
     max-width: 700px;
     margin: 0 auto;
@@ -478,6 +491,7 @@ section h2 {
     margin-top: 1rem;
 }
 
+/* --- FOOTER --- */
 footer {
     background: var(--primary-deep);
     color: var(--text-light);
@@ -491,9 +505,9 @@ footer {
     margin-bottom: 3rem;
 }
 
-/* Footer Logo */
+/* Updated Footer Logo */
 .footer-logo {
-    height: 50px;
+    height: 100px;
     width: auto;
     margin-bottom: 1rem;
     filter: brightness(0) invert(1);
@@ -505,7 +519,7 @@ footer {
     max-width: 300px;
 }
 
-/* Contact Email in Footer */
+/* Contact Email Link */
 .contact-email a {
     color: var(--accent-light);
     text-decoration: none;
@@ -560,7 +574,7 @@ footer {
     line-height: 1.6;
 }
 
-/* Animations */
+/* --- ANIMATIONS --- */
 .animate-element {
     opacity: 0;
     transform: translateY(30px);
@@ -572,7 +586,7 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive adjustments */
+/* --- MEDIA QUERIES --- */
 @media (max-width: 992px) {
     .hero h1 { font-size: 2.75rem; }
     .footer-content { grid-template-columns: 1fr 1fr; }
@@ -580,7 +594,9 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .nav-logo { height: 35px; }
+    /* Mobile Logo Adjustment */
+    .nav-logo { height: 50px; }
+
     .mobile-menu-btn { display: flex; }
 
     .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -611,4 +627,22 @@ footer {
     .footer-content { grid-template-columns: 1fr; text-align: center; }
     .footer-brand { grid-column: span 1; }
     .footer-brand p { margin: 0 auto; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 1.25rem; }
+
+    .hero h1 { font-size: 1.85rem; }
+
+    .cta-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-secondary { text-align: center; }
+
+    .stat-card h3 { font-size: 2.25rem; }
+
+    .contact-form { padding: 1.5rem; }
 }

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', function() {
             navLinks.classList.toggle('active');
@@ -59,23 +59,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         display: true,
                         text: 'AI vs. Human Expert Performance (Automated Evaluator)',
                         color: '#FFFFFF',
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 16,
-                            weight: '600'
-                        },
-                        padding: {
-                            bottom: 20
-                        }
+                        font: { family: "'Inter', sans-serif", size: 16, weight: '600' },
+                        padding: { bottom: 20 }
                     },
                     legend: {
                         position: 'bottom',
                         labels: {
                             color: '#FFFFFF',
-                            font: {
-                                family: "'Inter', sans-serif",
-                                size: 13
-                            },
+                            font: { family: "'Inter', sans-serif", size: 13 },
                             padding: 20,
                             usePointStyle: true,
                             pointStyle: 'rectRounded'
@@ -90,31 +81,20 @@ document.addEventListener('DOMContentLoaded', function() {
                             display: true,
                             text: 'Performance Score (%)',
                             color: '#FFFFFF',
-                            font: {
-                                family: "'Inter', sans-serif",
-                                size: 13
-                            }
+                            font: { family: "'Inter', sans-serif", size: 13 }
                         },
                         ticks: {
                             color: 'rgba(255, 255, 255, 0.8)',
-                            font: {
-                                family: "'Inter', sans-serif"
-                            }
+                            font: { family: "'Inter', sans-serif" }
                         },
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        }
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
                     },
                     x: {
                         ticks: {
                             color: 'rgba(255, 255, 255, 0.8)',
-                            font: {
-                                family: "'Inter', sans-serif"
-                            }
+                            font: { family: "'Inter', sans-serif" }
                         },
-                        grid: {
-                            display: false
-                        }
+                        grid: { display: false }
                     }
                 }
             }
@@ -139,30 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-            
-            console.log('Form submitted:', data);
-            
-            const button = contactForm.querySelector('button[type="submit"]');
-            const originalText = button.textContent;
-            button.textContent = 'Request Sent!';
-            button.style.background = '#28a745';
-            
-            contactForm.reset();
-            
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.style.background = '';
-            }, 3000);
-        });
-    }
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -172,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (target) {
                     const navHeight = document.querySelector('nav').offsetHeight;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -182,30 +138,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-const style = document.createElement('style');
-style.textContent = `
-    .animate-element {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    
-    .animate-element.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .mobile-menu-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .mobile-menu-btn.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-menu-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-`;
-document.head.appendChild(style);

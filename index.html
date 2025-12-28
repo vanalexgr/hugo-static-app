@@ -12,7 +12,9 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo">ClinicalGuidelines.io</div>
+            <div class="logo-container">
+                <img src="attached_assets/logo.png" alt="ClinicalGuidelines.io" class="nav-logo">
+            </div>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -20,8 +22,8 @@
             </button>
             <div class="nav-links">
                 <a href="#mission">Mission</a>
-                <a href="#technology">GraphRAG Technology</a>
-                <a href="#evidence">Validation Data</a>
+                <a href="#technology">Technology</a>
+                <a href="#evidence">Evidence</a>
                 <a href="#team">Team</a>
                 <a href="#contact" class="btn-primary">Request Beta</a>
             </div>
@@ -30,7 +32,11 @@
 
     <header class="hero">
         <div class="container">
-            <span class="badge">Research Initiative</span>
+            <div class="badge-group">
+                <span class="badge">Research Initiative</span>
+                <span class="badge-highlight">Presented at ESVS 2025 Istanbul</span>
+            </div>
+            
             <h1>Expert-Level Interpretation of <br>Vascular Guidelines</h1>
             <p class="hero-subtitle">An independent pilot demonstrating how GraphRAG AI delivers guideline-locked, hallucination-free answers.</p>
             <div class="cta-group">
@@ -47,32 +53,21 @@
             <div class="mission-grid">
                 <div class="mission-card">
                     <div class="mission-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                            <path d="M2 17l10 5 10-5"></path>
-                            <path d="M2 12l10 5 10-5"></path>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
                     </div>
                     <h3>Knowledge Synthesis</h3>
                     <p>Transform dense 200+ page clinical guidelines into instantly queryable intelligence.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                     </div>
                     <h3>Clinical Accuracy</h3>
                     <p>Every recommendation traced to specific guideline sections with evidence class and level.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="8" x2="12" y2="12"></line>
-                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                     </div>
                     <h3>Zero Hallucination</h3>
                     <p>If the answer isn't in the guidelines, the AI explicitly refuses to guess.</p>
@@ -134,44 +129,35 @@
         </div>
     </section>
 
-    <section id="how-it-works" class="section-white">
-        <div class="container">
-            <h2>How GraphRAG Works</h2>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Ingest Guidelines</h3>
-                    <p>Clinical guidelines are parsed, chunked, and embedded into a knowledge graph structure.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Query Processing</h3>
-                    <p>Natural language questions are matched against the graph using semantic similarity.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Constrained Generation</h3>
-                    <p>Responses are generated only from retrieved content with full citation tracking.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Evidence Display</h3>
-                    <p>Users see the answer alongside the exact source text and evidence classification.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" class="section-light">
+    <section id="team" class="section-white">
         <div class="container">
             <h2>Scientific Leadership</h2>
-            <p class="section-intro">Led by clinicians who understand both the promise and the peril of AI in medicine.</p>
+            [cite_start]<p class="section-intro">A multidisciplinary team of vascular surgeons and researchers [cite: 551-557].</p>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="member-avatar">VA</div>
                     <h3>Vangelis Alexiou, MD, PhD</h3>
                     <p class="member-role">Vascular Surgeon & Developer</p>
-                    <p class="member-affiliation">University Hospital of Ioannina</p>
+                    <p class="member-affiliation">University Hospital of Ioannina, Greece</p>
+                </div>
+                <div class="team-member">
+                    <h3>Areti Vassiliou, MD</h3>
+                    <p class="member-role">Vascular Surgeon</p>
+                    <p class="member-affiliation">Attikon University Hospital, Athens</p>
+                </div>
+                <div class="team-member">
+                    <h3>Prof. Bauer E. Sumpio, MD, PhD</h3>
+                    <p class="member-role">Professor of Surgery</p>
+                    <p class="member-affiliation">Yale University School of Medicine, USA</p>
+                </div>
+                <div class="team-member">
+                    <h3>Prof. George Geroulakos, MD, PhD</h3>
+                    <p class="member-role">Professor of Vascular Surgery</p>
+                    <p class="member-affiliation">National and Kapodistrian University of Athens</p>
+                </div>
+                <div class="team-member">
+                    <h3>Prof. Stavros K. Kakkos, MD, PhD</h3>
+                    <p class="member-role">Professor of Vascular Surgery</p>
+                    <p class="member-affiliation">University Hospital of Patras, Greece</p>
                 </div>
             </div>
         </div>
@@ -180,31 +166,39 @@
     <section id="contact" class="section-cta">
         <div class="container">
             <h2>Join the Pilot Program</h2>
-            <p class="section-intro">We're seeking vascular specialists and institutions to validate this technology in clinical workflows.</p>
-            <form class="contact-form" id="contactForm">
+            <p class="section-intro">Request access to the beta. Approved clinicians will be redirected to the secure chat interface.</p>
+            
+            <form class="contact-form" action="https://formsubmit.co/v.alexiou@aibs.gr" method="POST">
+                
+                <input type="hidden" name="_subject" value="New Beta Request - ClinicalGuidelines.io">
+                <input type="hidden" name="_next" value="https://chat.clinicalguidelines.io">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_autoresponse" value="Thank you for your interest in ClinicalGuidelines.io. We have received your request for beta access and will review your credentials shortly.">
+                <input type="hidden" name="_template" value="table">
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required placeholder="Dr. John Doe">
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="institute@hospital.com">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="institution">Institution</label>
+                        <label for="institution">Institution / Hospital</label>
                         <input type="text" id="institution" name="institution" required>
                     </div>
                     <div class="form-group">
                         <label for="role">Role</label>
                         <select id="role" name="role" required>
                             <option value="">Select your role</option>
-                            <option value="physician">Physician</option>
-                            <option value="researcher">Researcher</option>
-                            <option value="administrator">Administrator</option>
-                            <option value="other">Other</option>
+                            <option value="Vascular Surgeon">Vascular Surgeon</option>
+                            <option value="Resident/Fellow">Resident/Fellow</option>
+                            <option value="Researcher">Researcher</option>
+                            <option value="Administrator">Administrator</option>
                         </select>
                     </div>
                 </div>
@@ -221,20 +215,22 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo">ClinicalGuidelines.io</div>
+                    <img src="attached_assets/logo.png" alt="ClinicalGuidelines.io" class="footer-logo">
                     <p>Transforming clinical guidelines into intelligent, evidence-based decision support.</p>
+                    <p class="contact-email"><a href="mailto:support@clinicalguidelines.io">support@clinicalguidelines.io</a></p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <a href="#mission">Mission</a>
-                    <a href="#technology">Technology</a>
                     <a href="#evidence">Validation</a>
                     <a href="#team">Team</a>
+                    <a href="https://chat.clinicalguidelines.io" target="_blank">Login</a>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
                     <p>University Hospital of Ioannina</p>
                     <p>Ioannina, Greece</p>
+                    <p>+30 69 4438 8830</p>
                 </div>
             </div>
             <div class="footer-bottom">

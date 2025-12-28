@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClinicalGuidelines.io | The Vascular Intelligence Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ClinicalGuidelines.io</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#mission">Mission</a>
+                <a href="#technology">GraphRAG Technology</a>
+                <a href="#evidence">Validation Data</a>
+                <a href="#team">Team</a>
+                <a href="#contact" class="btn-primary">Request Beta</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="badge">Research Initiative</span>
+            <h1>Expert-Level Interpretation of <br>Vascular Guidelines</h1>
+            <p class="hero-subtitle">An independent pilot demonstrating how GraphRAG AI delivers guideline-locked, hallucination-free answers.</p>
+            <div class="cta-group">
+                <a href="#evidence" class="btn-secondary">View the Validation Data</a>
+                <a href="#contact" class="btn-primary">Join the Pilot</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="mission" class="section-light">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p class="section-intro">Bridging the gap between complex clinical guidelines and actionable, evidence-based decisions at the point of care.</p>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Knowledge Synthesis</h3>
+                    <p>Transform dense 200+ page clinical guidelines into instantly queryable intelligence.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Clinical Accuracy</h3>
+                    <p>Every recommendation traced to specific guideline sections with evidence class and level.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>Zero Hallucination</h3>
+                    <p>If the answer isn't in the guidelines, the AI explicitly refuses to guess.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="evidence" class="section-dark">
+        <div class="container">
+            <h2>The Crucible: Benchmarking Against the Masters</h2>
+            <p class="section-intro">We tested the engine against 41 clinical vignettes authored by the ESC/ESVS Writing Committee.</p>
+            
+            <div class="chart-container">
+                <canvas id="benchmarkChart"></canvas>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>90.5%</h3>
+                    <p>AI Performance Score</p>
+                    <small>vs 77.8% for Committee Exemplars</small>
+                </div>
+                <div class="stat-card">
+                    <h3>Non-Inferior</h3>
+                    <p>Across All 12 Metrics</p>
+                    <small>p &lt; 0.001 Safety Margin</small>
+                </div>
+                <div class="stat-card">
+                    <h3>Zero</h3>
+                    <p>Hallucinations</p>
+                    <small>100% Citation Lock-in</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" class="section-light">
+        <div class="container">
+            <h2>Why Standard AI Fails Medicine</h2>
+            <p class="section-intro">Understanding the critical difference between general-purpose LLMs and our GraphRAG approach.</p>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-number">01</div>
+                    <h3>The Problem: Hallucination</h3>
+                    <p>Generic LLMs invent facts when they don't know the answer. This is a non-starter for vascular surgery where patient safety depends on accurate information.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-number">02</div>
+                    <h3>The Solution: Guideline Lock-in</h3>
+                    <p>Our GraphRAG engine creates a mathematical boundary. If the answer isn't in the PDF, the AI explicitly refuses to guess, ensuring absolute fidelity to source material.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-number">03</div>
+                    <h3>Traceable Evidence</h3>
+                    <p>Every response includes a "Trace Drawer" linking to the specific paragraph and evidence level (Class I, Level B), enabling verification at the source.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="section-white">
+        <div class="container">
+            <h2>How GraphRAG Works</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Ingest Guidelines</h3>
+                    <p>Clinical guidelines are parsed, chunked, and embedded into a knowledge graph structure.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Query Processing</h3>
+                    <p>Natural language questions are matched against the graph using semantic similarity.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Constrained Generation</h3>
+                    <p>Responses are generated only from retrieved content with full citation tracking.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Evidence Display</h3>
+                    <p>Users see the answer alongside the exact source text and evidence classification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section-light">
+        <div class="container">
+            <h2>Scientific Leadership</h2>
+            <p class="section-intro">Led by clinicians who understand both the promise and the peril of AI in medicine.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">VA</div>
+                    <h3>Vangelis Alexiou, MD, PhD</h3>
+                    <p class="member-role">Vascular Surgeon & Developer</p>
+                    <p class="member-affiliation">University Hospital of Ioannina</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-cta">
+        <div class="container">
+            <h2>Join the Pilot Program</h2>
+            <p class="section-intro">We're seeking vascular specialists and institutions to validate this technology in clinical workflows.</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="institution">Institution</label>
+                        <input type="text" id="institution" name="institution" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="physician">Physician</option>
+                            <option value="researcher">Researcher</option>
+                            <option value="administrator">Administrator</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Message (Optional)</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-large">Request Beta Access</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">ClinicalGuidelines.io</div>
+                    <p>Transforming clinical guidelines into intelligent, evidence-based decision support.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#mission">Mission</a>
+                    <a href="#technology">Technology</a>
+                    <a href="#evidence">Validation</a>
+                    <a href="#team">Team</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>University Hospital of Ioannina</p>
+                    <p>Ioannina, Greece</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ClinicalGuidelines.io. All rights reserved.</p>
+                <p class="disclaimer"><strong>Disclaimer:</strong> This platform is an independent research initiative for the validation of AI in clinical decision support. It is not currently an official product of the ESVS. All guideline content is processed for demonstration and validation purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

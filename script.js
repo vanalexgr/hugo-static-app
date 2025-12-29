@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Logic
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Navbar Scroll Effect
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // --- CHART CONFIGURATION (UPDATED FOR MOBILE) ---
     const chartCanvas = document.getElementById('benchmarkChart');
     if (chartCanvas) {
         const ctx = chartCanvas.getContext('2d');
@@ -53,11 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false, // <--- CHANGED TO FALSE FOR MOBILE
                 plugins: {
                     title: {
                         display: true,
-                        text: 'AI vs. Human Expert Performance (Automated Evaluator)',
+                        text: 'AI vs. Human Expert Performance',
                         color: '#FFFFFF',
                         font: { family: "'Inter', sans-serif", size: 16, weight: '600' },
                         padding: { bottom: 20 }
@@ -66,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         position: 'bottom',
                         labels: {
                             color: '#FFFFFF',
-                            font: { family: "'Inter', sans-serif", size: 13 },
+                            font: { family: "'Inter', sans-serif", size: 12 }, // Smaller font for mobile
                             padding: 20,
                             usePointStyle: true,
                             pointStyle: 'rectRounded'
@@ -79,21 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         max: 100,
                         title: {
                             display: true,
-                            text: 'Performance Score (%)',
+                            text: 'Score (%)',
                             color: '#FFFFFF',
-                            font: { family: "'Inter', sans-serif", size: 13 }
+                            font: { family: "'Inter', sans-serif", size: 12 }
                         },
-                        ticks: {
-                            color: 'rgba(255, 255, 255, 0.8)',
-                            font: { family: "'Inter', sans-serif" }
-                        },
+                        ticks: { color: 'rgba(255, 255, 255, 0.8)' },
                         grid: { color: 'rgba(255, 255, 255, 0.1)' }
                     },
                     x: {
-                        ticks: {
-                            color: 'rgba(255, 255, 255, 0.8)',
-                            font: { family: "'Inter', sans-serif" }
-                        },
+                        ticks: { color: 'rgba(255, 255, 255, 0.8)' },
                         grid: { display: false }
                     }
                 }
@@ -101,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Animation Logic
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -119,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');

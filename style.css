@@ -601,6 +601,11 @@ footer {
     text-decoration: underline;
 }
 
+.footer-legal-links .separator {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+}
+
 /* --- LEGAL PAGES (Privacy Policy, Terms, etc.) --- */
 .legal-page {
     padding: 8rem 0 4rem;
@@ -637,12 +642,14 @@ footer {
     margin-bottom: 1rem;
 }
 
-.legal-content ul {
+.legal-content ul,
+.legal-content ol {
     margin: 1rem 0 1.5rem 1.5rem;
     color: var(--text-muted);
 }
 
-.legal-content ul li {
+.legal-content ul li,
+.legal-content ol li {
     margin-bottom: 0.5rem;
 }
 

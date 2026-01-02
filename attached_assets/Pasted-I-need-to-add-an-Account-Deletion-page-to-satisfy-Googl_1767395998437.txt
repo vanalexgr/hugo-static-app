@@ -1,0 +1,39 @@
+I need to add an "Account Deletion" page to satisfy Google Play Store requirements.
+
+Please perform the following tasks:
+
+### 1. Create `delete-account.html`
+Create a new file in the root directory named `delete-account.html`.
+It should use the same visual style, header (navbar), and footer as `index.html`.
+
+**Content for the Body:**
+(Use a container class like `content-container` or `.legal-content` to keep it centered and readable).
+
+<h1>Request Account Deletion</h1>
+<p><strong>Last updated:</strong> January 3, 2026</p>
+
+<p>At <strong>Clinical Guidelines</strong>, we respect your privacy and your right to control your data. If you wish to delete your account and all associated data, you may do so at any time.</p>
+
+<h2>How to Request Deletion</h2>
+<p>Since we use secure Single Sign-On (SSO) for authentication, account deletion must be processed by our administrative team to ensure all data is removed from both our application servers and our authentication provider (Auth0).</p>
+
+<p>To request deletion, please follow these steps:</p>
+<ol>
+    <li>Send an email to <strong>support@clinicalguidelines.io</strong> (or your preferred contact email).</li>
+    <li>Use the subject line: <strong>"Account Deletion Request"</strong>.</li>
+    <li>Please send the email from the address associated with your account so we can verify ownership.</li>
+</ol>
+
+<h2>What Happens Next?</h2>
+<ul>
+    <li>We will verify your request and initiate the deletion process.</li>
+    <li><strong>Data Deleted:</strong> Your user profile, login credentials, chat history, and saved preferences will be permanently removed.</li>
+    <li><strong>Retention:</strong> This process is irreversible. We will process your request within 30 days in accordance with GDPR and data privacy laws.</li>
+</ul>
+
+<p>If you have any questions, please contact our support team.</p>
+
+---
+
+### 2. Update `index.html` (Footer)
+Add a link in the footer next to "Privacy Policy" that says **"Delete Account"** and points to `delete-account.html`.

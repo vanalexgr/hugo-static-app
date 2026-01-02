@@ -1,0 +1,53 @@
+I need to add a "Privacy Policy" page to my website that matches the existing design.
+
+Please perform the following 3 tasks:
+
+### 1. Create a new file named `privacy.html`
+Create this file in the root directory. It should share the same `<head>` (fonts, CSS links) as `index.html`. 
+Inside the body, use a simple layout:
+- **Header:** The same navigation bar as `index.html` (with the logo linking back to `index.html`).
+- **Main Content:** A centered container (use a class like `content-container` or `legal-text`) containing the Privacy Policy text provided below.
+- **Footer:** The same footer as `index.html`.
+
+**Content for `privacy.html`:**
+(Convert this text to clean HTML with <h2> and <p> tags):
+
+<h1>Privacy Policy</h1>
+<p><strong>Last updated:</strong> January 3, 2026</p>
+<p><strong>Clinical Guidelines</strong> is a free application built by <strong>Evangelos Alexiou</strong>. This SERVICE is provided at no cost and is intended for use as is.</p>
+
+<h2>Information Collection and Use</h2>
+<p>For a better experience while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained on your device and is not collected by us in any way.</p>
+<p>The app does use third-party services that may collect information used to identify you.</p>
+<p>Link to privacy policy of third-party service providers used by the app:</p>
+<ul>
+    <li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Play Services</a></li>
+    <li><a href="https://support.apple.com/en-us/HT210318" target="_blank">Apple Sign In</a></li>
+    <li><a href="https://policies.google.com/privacy" target="_blank">Google Sign-In</a></li>
+    <li><a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank">Microsoft Entra ID</a></li>
+    <li><a href="https://legal.yahoo.com/us/en/yahoo/privacy/index.html" target="_blank">Yahoo! Developer Network</a></li>
+    <li><a href="https://www.linkedin.com/legal/privacy-policy" target="_blank">LinkedIn</a></li>
+</ul>
+
+<h2>Log Data</h2>
+<p>We want to inform you that whenever you use my Service, in a case of an error in the app we collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.</p>
+
+<h2>Service Providers</h2>
+<p>We may employ third-party companies and individuals to facilitate our Service, provide the Service on our behalf, or assist us in analyzing how our Service is used.</p>
+
+<h2>Security</h2>
+<p>We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.</p>
+
+<h2>Changes to This Privacy Policy</h2>
+<p>We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+
+<h2>Contact Us</h2>
+<p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact us.</p>
+
+---
+
+### 2. Update `style.css`
+Check if there is a class suitable for text pages (left-aligned text, max-width 800px, readable line-height). If not, please add a new class `.legal-content` to `style.css` to ensure the Privacy Policy looks good and isn't stretched across the whole screen.
+
+### 3. Update `index.html`
+Find the **Footer** section in `index.html`. Add a link that says **"Privacy Policy"** pointing to `privacy.html`. It should be placed near the copyright text or in the footer navigation links.

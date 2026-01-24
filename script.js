@@ -136,4 +136,42 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Back to Top Logic
+    const backToTopBtn = document.getElementById('backToTop');
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Cookie Consent Logic
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptCookiesBtn = document.getElementById('acceptCookies');
+
+    if (cookieBanner && acceptCookiesBtn) {
+        if (!localStorage.getItem('cookieConsent')) {
+            // Show banner after a short delay
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
+        }
+
+        acceptCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'true');
+            cookieBanner.classList.remove('show');
+        });
+    }
 });

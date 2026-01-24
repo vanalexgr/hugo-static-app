@@ -16,7 +16,6 @@ A static, responsive business website for a medical AI research initiative. The 
 ├── index.html       # Main HTML file with all sections
 ├── style.css        # Complete styling with responsive design
 ├── script.js        # Mobile menu, chart, animations, form handling
-├── package.json     # Node.js config for serve
 └── replit.md        # This file
 ```
 
@@ -38,7 +37,7 @@ A static, responsive business website for a medical AI research initiative. The 
 - Fonts: Merriweather (headings), Inter (body)
 
 ## Running the Project
-The website is served using `npx serve -s . -l 5000`
+The website is served using `npx serve -s . -l 5000` or simply by opening `index.html` in a browser.
 
 ## Recent Changes
 - December 28, 2025: Initial build with complete responsive design

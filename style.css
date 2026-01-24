@@ -490,12 +490,21 @@ section h2 {
     transition: var(--transition);
 }
 
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+    background: var(--bg-white);
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-blue);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    background: var(--bg-white);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+    transform: translateY(-1px);
 }
 
 .contact-form button {
@@ -743,4 +752,80 @@ footer {
     .stat-card h3 { font-size: 2.25rem; }
 
     .contact-form { padding: 1.5rem; }
+}
+/* --- BACK TO TOP --- */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--accent-blue);
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 900;
+    box-shadow: var(--shadow-md);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: var(--primary-deep);
+    transform: translateY(-5px);
+}
+
+/* --- COOKIE BANNER --- */
+.cookie-banner {
+    position: fixed;
+    bottom: -100px; /* Hidden initially */
+    left: 0;
+    right: 0;
+    background: var(--bg-white);
+    padding: 1rem 2rem;
+    box-shadow: 0 -4px 20px rgba(0, 45, 98, 0.1);
+    z-index: 1000;
+    transition: bottom 0.5s ease;
+    border-top: 1px solid var(--border-color);
+}
+
+.cookie-banner.show {
+    bottom: 0;
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cookie-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
 }

@@ -17,13 +17,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navbar Scroll Effect
+    // Navbar & Back to Top Scroll Logic
     const nav = document.querySelector('nav');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            nav.style.boxShadow = '0 2px 20px rgba(0, 45, 98, 0.1)';
-        } else {
-            nav.style.boxShadow = 'none';
+    const backToTopBtn = document.getElementById('backToTop');
+
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
+
+        // Navbar Scroll Effect
+        if (nav) {
+            if (scrollY > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0, 45, 98, 0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        }
+
+        // Back to Top Button Visibility
+        if (backToTopBtn) {
+            if (scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }
+    };
+
+    let isScrolling = false;
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                try {
+                    handleScroll();
+                } finally {
+                    isScrolling = false;
+                }
+            });
+            isScrolling = true;
         }
     });
 
@@ -137,18 +167,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Back to Top Logic
-    const backToTopBtn = document.getElementById('backToTop');
-
+    // Back to Top Click Handler
     if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,

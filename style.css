@@ -432,19 +432,9 @@ section h2 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-
-    /* FIX FOR MOBILE: */
     position: relative;
     height: 400px; /* Default height for Desktop */
     width: 100%;
-}
-
-/* Add this Mobile Query at the bottom of your CSS file if not present */
-@media (max-width: 768px) {
-    .chart-container {
-        height: 300px; /* Taller/Adjusted for mobile readability */
-        padding: 1rem; /* Less padding to give the chart more space */
-    }
 }
 .stats-grid {
     display: grid;
@@ -847,6 +837,11 @@ footer {
     .hero { padding: 8rem 0 4rem; }
     .hero h1 { font-size: 2.25rem; }
     .hero h1 br { display: none; }
+
+    .chart-container {
+        height: 300px;
+        padding: 1rem;
+    }
 
     .form-row { grid-template-columns: 1fr; }
     .form-group.full-width { grid-column: span 1; }

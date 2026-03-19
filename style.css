@@ -235,7 +235,23 @@ nav {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+}
+
+.app-store-btn {
+    display: inline-flex;
+    transition: var(--transition);
+}
+
+.app-store-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.app-store-btn img {
+    height: 3.125rem; /* ~50px, typical height to match other buttons vertically */
+    width: auto;
 }
 
 /* --- PUBLICATIONS --- */

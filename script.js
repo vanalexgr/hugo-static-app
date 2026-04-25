@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const navHeight = nav?.offsetHeight || 0;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
 
                     window.scrollTo({

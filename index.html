@@ -5,8 +5,8 @@
         <meta name="referrer" content="origin">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Expert-Level Interpretation of Clinical Practice Guidelines. An independent pilot demonstrating how GraphRAG AI delivers guideline-locked, hallucination-free answers.">
-        <title>ClinicalGuidelines.io | Proofed-backed guidance, on tap</title>
+        <meta name="description" content="Agentic clinical decision support for vascular surgery, grounded in 14 ESVS guidelines with context-aware clarification and citation-grade evidence.">
+        <title>ClinicalGuidelines.io | Agentic Vascular Guideline Companion</title>
 
         <link rel="icon" type="image/png" href="attached_assets/favicon.ico">
         <link rel="apple-touch-icon" href="attached_assets/favicon.ico">
@@ -28,62 +28,121 @@
                 <span></span>
             </button>
             <div class="nav-links">
-                <a href="#mission">Mission</a>
-                <a href="#evidence">Evidence</a>
+                <a href="#mission">Platform</a>
+                <a href="#evidence">Validation</a>
+                <a href="#technology">Architecture</a>
                 <a href="#publications">Publications</a>
-                <a href="#technology">Technology</a>
+                <a href="#presentations">Presentations</a>
                 <a href="#team">Team</a>
-                <a href="#contact" class="btn-primary">Request Beta</a>
+                <a href="#contact" class="btn-primary">Request Access</a>
             </div>
         </div>
     </nav>
 
     <main>
     <header class="hero">
-        <div class="container">
-            <div class="badge-group">
-                <span class="badge">Research Initiative</span>
-                <span class="badge-highlight">Presented at ESVS 2025 Istanbul</span>
-                <span class="badge-highlight-alt">In press at Annals of Vascular Surgery</span>
+        <div class="container hero-grid">
+            <div class="hero-copy">
+                <div class="badge-group">
+                    <span class="badge">Research Platform</span>
+                    <span class="badge-highlight">Published in Annals of Vascular Surgery</span>
+                    <span class="badge-highlight-alt">14 ESVS Guidelines Unified</span>
+                </div>
+                <p class="hero-kicker">Multi-guideline decision support for vascular surgery</p>
+                <h1>From Static Chatbot to Agentic Clinical Companion</h1>
+                <p class="hero-subtitle">ClinicalGuidelines.io is being re-engineered from a single-guideline GraphRAG assistant into a context-aware vascular surgery agent that routes across 14 guidelines, asks for missing clinical details, and responds with citation-grade evidence.</p>
+                <div class="cta-group">
+                    <a href="#evidence" class="btn-secondary">View Validation</a>
+                    <a href="#publications" class="btn-primary">See the Publications</a>
+                    <a href="#contact" class="btn-tertiary">Request Beta Access</a>
+                </div>
+                <div class="hero-store">
+                    <a href="https://apps.apple.com/us/app/clinical-guidelines-ai/id6757233040" target="_blank" class="app-store-btn" aria-label="Download on the App Store">
+                        <img src="attached_assets/app-store-badge.svg" alt="Download on the App Store">
+                    </a>
+                </div>
             </div>
-            
-            <h1>Expert-Level Interpretation of Clinical<br>Practice Guidelines</h1>
-            <p class="hero-subtitle">An independent pilot demonstrating how GraphRAG AI delivers guideline-locked, hallucination-free answers.</p>
-            <div class="cta-group">
-                <a href="#evidence" class="btn-secondary">View the Validation Data</a>
-                <a href="#contact" class="btn-primary">Join the Pilot</a>
-                <a href="https://apps.apple.com/us/app/clinical-guidelines-ai/id6757233040" target="_blank" class="app-store-btn" aria-label="Download on the App Store">
-                    <img src="attached_assets/app-store-badge.svg" alt="Download on the App Store">
-                </a>
-            </div>
+            <aside class="hero-panel">
+                <p class="panel-eyebrow">Platform Features</p>
+                <h2>A vascular surgery companion built for the real structure of bedside decision-making</h2>
+                <div class="panel-stat-list">
+                    <div class="panel-stat">
+                        <span class="panel-stat-value">Guideline Router</span>
+                        <span class="panel-stat-label">Directs each request to the correct vascular guideline domain before evidence is retrieved.</span>
+                    </div>
+                    <div class="panel-stat">
+                        <span class="panel-stat-value">Context Gate</span>
+                        <span class="panel-stat-label">Blocks incomplete patient cases and asks for the missing clinical parameters needed for a safe answer.</span>
+                    </div>
+                    <div class="panel-stat">
+                        <span class="panel-stat-value">Dual Retrieval</span>
+                        <span class="panel-stat-label">Combines narrative reasoning with structured recommendation chunks to preserve citation-grade evidence.</span>
+                    </div>
+                    <div class="panel-stat">
+                        <span class="panel-stat-value">PHI-safe</span>
+                        <span class="panel-stat-label">Applies de-identification and multi-turn state checks before downstream reasoning and retrieval.</span>
+                    </div>
+                </div>
+                <p class="panel-note">The goal is not a generic chatbot. It is a clinical interface that asks better questions, routes more intelligently, and answers with verifiable source control.</p>
+            </aside>
         </div>
     </header>
 
+    <section class="section-proof">
+        <div class="container">
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <span class="proof-value">14</span>
+                    <p class="proof-label">ESVS guideline books aggregated into one unified vascular decision-support environment.</p>
+                </div>
+                <div class="proof-card">
+                    <span class="proof-value">Router</span>
+                    <p class="proof-label">Identifies the correct guideline pathway instead of forcing clinicians to search manually.</p>
+                </div>
+                <div class="proof-card">
+                    <span class="proof-value">Context Gate</span>
+                    <p class="proof-label">Intercepts underspecified cases before recommendation output is allowed to proceed.</p>
+                </div>
+                <div class="proof-card">
+                    <span class="proof-value">Traceability</span>
+                    <p class="proof-label">Recommendation-grade evidence is surfaced with preserved source alignment and citation logic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="mission" class="section-light">
         <div class="container">
-            <h2>Our Mission</h2>
-            <p class="section-intro">Bridging the gap between complex clinical guidelines and actionable, evidence-based decisions at the point of care.</p>
+            <h2>The System Triages Queries Like a Vascular Consultant</h2>
+            <p class="section-intro">The core shift is not only better retrieval. The platform now decides what kind of clinical question it has received, whether the case is answerable, and whether critical context is missing before advice is returned.</p>
             <div class="mission-grid">
                 <div class="mission-card">
                     <div class="mission-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"></path><path d="M4 12h10"></path><path d="M4 19h7"></path><path d="M18 12l2 2 4-4"></path></svg>
                     </div>
-                    <h3>Knowledge Synthesis</h3>
-                    <p>Transform dense 200+ page clinical guidelines into instantly queryable intelligence.</p>
+                    <h3>Knowledge Questions</h3>
+                    <p>Pure guideline questions proceed directly to routed retrieval, producing concise answers grounded in the most relevant source sections.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.81 0 3.5.53 4.91 1.45"></path></svg>
                     </div>
-                    <h3>Clinical Accuracy</h3>
-                    <p>Every recommendation traced to specific guideline sections with evidence class and level.</p>
+                    <h3>Complete Patient Cases</h3>
+                    <p>When mandatory clinical variables are present, the case is validated, routed, and answered with traceable recommendation-level justification.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4"></path><path d="M12 16h.01"></path><circle cx="12" cy="12" r="9"></circle></svg>
                     </div>
-                    <h3>Zero Hallucination</h3>
-                    <p>If the answer isn't in the guidelines, the AI explicitly refuses to guess.</p>
+                    <h3>Incomplete Patient Cases</h3>
+                    <p>A dedicated Context Gate intercepts unsafe or underspecified scenarios and generates structured clarification prompts instead of premature recommendations.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h3>Protected Clinical Text</h3>
+                    <p>PHI de-identification and multi-turn change detection keep the pipeline focused on clinical reasoning while reducing downstream privacy and state-tracking risks.</p>
                 </div>
             </div>
         </div>
@@ -91,28 +150,81 @@
 
     <section id="evidence" class="section-dark">
         <div class="container">
-            <h2>The Crucible: Benchmarking Against the Masters</h2>
-            <p class="section-intro">We tested the engine against 41 clinical vignettes authored by the ESC/ESVS Writing Committee.</p>
+            <h2>The Previous Study Established the Validation Baseline</h2>
+            <p class="section-intro">Before the move to a multi-guideline agentic system, the original guideline-locked application was benchmarked against expert-level answers and demonstrated non-inferior performance with explicit citation control.</p>
             
             <div class="chart-container">
                 <canvas id="benchmarkChart"></canvas>
             </div>
+            <p class="evidence-note">This published validation work is the foundation for the new platform layer now being extended into multi-guideline, context-aware vascular decision support.</p>
             
             <div class="stats-grid">
                 <div class="stat-card">
                     <h3>90.5%</h3>
                     <p>AI Performance Score</p>
-                    <small>vs 77.8% for Committee Exemplars</small>
+                    <small>vs 77.8% for committee exemplars</small>
                 </div>
                 <div class="stat-card">
                     <h3>Non-Inferior</h3>
                     <p>Across All 12 Metrics</p>
-                    <small>p &lt; 0.001 Safety Margin</small>
+                    <small>p &lt; 0.001 safety margin</small>
                 </div>
                 <div class="stat-card">
                     <h3>Zero</h3>
                     <p>Hallucinations</p>
-                    <small>100% Citation Lock-in</small>
+                    <small>100% citation lock-in</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" class="section-white">
+        <div class="container">
+            <h2>Architecture That Behaves Like a Clinical Companion</h2>
+            <p class="section-intro">The new system moves beyond passive retrieval. It interprets intent, checks whether the case is sufficiently specified, and only then decides how to retrieve and frame the evidence.</p>
+            <div class="process-grid">
+                <div class="process-step">
+                    <span class="process-number">01</span>
+                    <h3>Pre-retrieval interpretation</h3>
+                    <p>The incoming query is classified as a knowledge request, a complete case, or an incomplete case requiring clarification.</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-number">02</span>
+                    <h3>Guideline Router Service</h3>
+                    <p>The request is directed across the correct guideline domain rather than forcing the user to know where the answer lives.</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-number">03</span>
+                    <h3>Context Gate</h3>
+                    <p>Mandatory clinical parameters are checked before advice is produced, preventing unsafe recommendations from underspecified cases.</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-number">04</span>
+                    <h3>Dual-channel retrieval</h3>
+                    <p>Narrative chunks provide nuance while structured recommendation chunks carry the citation-grade decision signal.</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-number">05</span>
+                    <h3>Traceable response layer</h3>
+                    <p>Outputs return with source-linked justification, preserved traceability, and resistance to cross-guideline contamination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-light">
+        <div class="container">
+            <h2>Prospective Multicenter Validation with HSVES</h2>
+            <p class="section-intro">The next stage is designed to move from internal technical validation to real-world case testing in conjunction with the Hellenic Society of Vascular and Endovascular Surgery.</p>
+            <div class="endorsement-card">
+                <div class="endorsement-logo-wrap">
+                    <img src="attached_assets/hsves-logo.png" alt="Hellenic Society of Vascular and Endovascular Surgery" class="endorsement-logo">
+                </div>
+                <div class="endorsement-content">
+                    <p class="endorsement-kicker">Clinical validation pathway</p>
+                    <h3>HSVES brings the bridge to real-world vascular practice</h3>
+                    <p>The proposed prospective program is centered on multicenter assessment against real vascular surgery cases, with the explicit goal of testing whether an auditable, multi-guideline agent can support decision quality at the bedside without sacrificing transparency or clinician control.</p>
+                    <p>The strategic value is simple: an agent that asks for missing details before it speaks is materially closer to the workflow of an experienced consultant than a static chatbot that only retrieves text.</p>
                 </div>
             </div>
         </div>
@@ -121,9 +233,9 @@
     <section id="publications" class="section-white">
         <div class="container">
             <h2>Publications</h2>
-            <p class="section-intro">Research achievements produced by this independent initiative.</p>
+            <p class="section-intro">Peer-reviewed work tracing the evolution from general-purpose LLM benchmarking to guideline-locked clinical decision support in vascular surgery.</p>
             <div class="publications-list">
-                <div class="publication-card">
+                <article class="publication-card">
                     <div class="pub-number">1</div>
                     <div class="pub-content">
                         <p class="pub-authors">Alexiou VG, Sumpio BE, Vassiliou A, Kakkos SK, Geroulakos G.</p>
@@ -132,44 +244,98 @@
                             <span class="journal-name">Ann Vasc Surg.</span>
                             <span class="journal-details">2025 Feb;111:260-267. doi: 10.1016/j.avsg.2024.11.014. Epub 2024 Nov 24. PMID: 39586530.</span>
                         </p>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1016/j.avsg.2024.11.014" target="_blank">DOI</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/39586530/" target="_blank">PubMed</a>
+                        </div>
+                        <p class="pub-note">Established the early benchmark for how foundation models handle vascular surgery decision-making before the guideline-locked architecture was introduced.</p>
                     </div>
-                </div>
+                </article>
 
-                <div class="publication-card">
+                <article class="publication-card featured-publication">
                     <div class="pub-number">2</div>
                     <div class="pub-content">
                         <p class="pub-authors">Alexiou VG, Vassiliou A, Sumpio BE, Geroulakos G, Kakkos SK.</p>
                         <h3 class="pub-title">An Artificial Intelligence Application for Standardized Expert-Level Interpretation of Vascular Clinical Practice Guidelines</h3>
                         <p class="pub-journal">
                             <span class="journal-name">Ann Vasc Surg.</span>
-                            <span class="journal-status badge-in-press">In press</span>
+                            <span class="journal-status badge-published">Published</span>
+                            <span class="journal-details">2026 Jul;128:473-483. doi: 10.1016/j.avsg.2026.03.020. PMID: 41895597.</span>
                         </p>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1016/j.avsg.2026.03.020" target="_blank">DOI</a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41895597/" target="_blank">PubMed</a>
+                        </div>
+                        <p class="pub-note">Published in the Annals of Vascular Surgery, this study validated standardized expert-level interpretation of vascular clinical practice guidelines and forms the launchpad for the next agentic, multi-guideline phase.</p>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <section id="technology" class="section-light">
+    <section id="presentations" class="section-light">
         <div class="container">
-            <h2>Why Standard AI Fails Medicine</h2>
-            <p class="section-intro">Understanding the critical difference between general-purpose LLMs and our GraphRAG approach.</p>
-            <div class="feature-grid">
-                <div class="feature">
-                    <div class="feature-number">01</div>
-                    <h3>The Problem: Hallucination</h3>
-                    <p>Generic LLMs invent facts when they don't know the answer. This is a non-starter for vascular surgery where patient safety depends on accurate information.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-number">02</div>
-                    <h3>The Solution: Guideline Lock-in</h3>
-                    <p>Our GraphRAG engine creates a mathematical boundary. If the answer isn't in the PDF, the AI explicitly refuses to guess, ensuring absolute fidelity to source material.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-number">03</div>
-                    <h3>Traceable Evidence</h3>
-                    <p>Every response includes a "Trace Drawer" linking to the specific paragraph and evidence level (Class I, Level B), enabling verification at the source.</p>
-                </div>
+            <h2>Presentations</h2>
+            <p class="section-intro">ClinicalGuidelines.io has also been presented across major vascular meetings, moving the platform from publication into live international discussion.</p>
+            <div class="presentations-grid">
+                <article class="presentation-card featured-presentation">
+                    <div class="presentation-meta">
+                        <span class="presentation-badge">Invited Faculty</span>
+                        <span class="presentation-year">2026</span>
+                    </div>
+                    <h3>48th CX Vascular and Endovascular Consensus Update</h3>
+                    <p class="presentation-location">ExCeL London, United Kingdom</p>
+                    <p class="presentation-date">Thursday, 23 April 2026</p>
+                    <dl class="presentation-details">
+                        <div>
+                            <dt>Time</dt>
+                            <dd>17:05 - 17:10</dd>
+                        </div>
+                        <div>
+                            <dt>Location</dt>
+                            <dd>Theatre 3</dd>
+                        </div>
+                        <div>
+                            <dt>Talk</dt>
+                            <dd>Clinicalguideline IO: Transforming guidelines into intelligence</dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="presentation-card">
+                    <div class="presentation-meta">
+                        <span class="presentation-badge presentation-badge-secondary">Oral Presentation</span>
+                        <span class="presentation-year">2025</span>
+                    </div>
+                    <h3>39th ESVS Annual Meeting</h3>
+                    <p class="presentation-location">Istanbul, Türkiye</p>
+                    <p class="presentation-date">23-26 September 2025</p>
+                    <dl class="presentation-details compact-details">
+                        <div>
+                            <dt>Session window</dt>
+                            <dd>Tuesday 23 September, 13:00 - 17:30</dd>
+                        </div>
+                        <div>
+                            <dt>Reference</dt>
+                            <dd>AS-ESVS-2025-00397</dd>
+                        </div>
+                        <div>
+                            <dt>Abstract</dt>
+                            <dd>An Artificial Intelligence companion app that provides expert-level interpretation of clinical practice guidelines</dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="presentation-card">
+                    <div class="presentation-meta">
+                        <span class="presentation-badge presentation-badge-secondary">Conference Presentation</span>
+                        <span class="presentation-year">2025</span>
+                    </div>
+                    <h3>SITE Barcelona 2025</h3>
+                    <p class="presentation-location">Barcelona, Spain</p>
+                    <p class="presentation-date">15-17 October 2025</p>
+                    <p class="presentation-note">Showcased the ClinicalGuidelines.io concept within the endovascular meeting circuit, reinforcing interest in guideline-aware vascular AI beyond the manuscript setting.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -177,7 +343,7 @@
     <section id="team" class="section-white">
         <div class="container">
             <h2>Scientific Leadership</h2>
-            <p class="section-intro">A multidisciplinary team of vascular surgeons and researchers.</p>
+            <p class="section-intro">A multidisciplinary leadership group spanning vascular surgery, academic medicine, and translational clinical AI.</p>
             <div class="team-grid">
                 <div class="team-member">
                     <h3>Vangelis Alexiou, MD, PhD</h3>
@@ -210,15 +376,15 @@
 
     <section id="contact" class="section-cta">
         <div class="container">
-            <h2>Join the Pilot Program</h2>
-            <p class="section-intro">Request access to the beta. Approved clinicians will be redirected to the secure chat interface.</p>
+            <h2>Join the Next Validation Phase</h2>
+            <p class="section-intro">Request access to the beta or register interest as a clinical validation collaborator. Approved clinicians will be redirected to the secure chat interface.</p>
             
             <form class="contact-form" action="https://formsubmit.co/v.alexiou@aibs.gr" method="POST" enctype="multipart/form-data">
                 
-                <input type="hidden" name="_subject" value="New Beta Request - ClinicalGuidelines.io">
+                <input type="hidden" name="_subject" value="New Access Request - ClinicalGuidelines.io">
                 <input type="hidden" name="_next" value="https://chat.clinicalguidelines.io">
                 <input type="hidden" name="_captcha" value="true">
-                <input type="hidden" name="_autoresponse" value="Thank you for your interest in ClinicalGuidelines.io. We have received your request for beta access and will review your credentials shortly.">
+                <input type="hidden" name="_autoresponse" value="Thank you for your interest in ClinicalGuidelines.io. We have received your request and will review your credentials shortly.">
                 <input type="hidden" name="_template" value="table">
 
                 <div class="form-row">
@@ -266,13 +432,16 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <img src="attached_assets/logo.png" alt="ClinicalGuidelines.io" class="footer-logo">
-                    <p>Transforming clinical guidelines into intelligent, evidence-based decision support.</p>
+                    <p>Agentic, guideline-locked clinical decision support for vascular surgery.</p>
                     <p class="contact-email"><a href="mailto:support@clinicalguidelines.io">support@clinicalguidelines.io</a></p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <a href="#mission">Mission</a>
+                    <a href="#mission">Platform</a>
                     <a href="#evidence">Validation</a>
+                    <a href="#technology">Architecture</a>
+                    <a href="#publications">Publications</a>
+                    <a href="#presentations">Presentations</a>
                     <a href="#team">Team</a>
                     <a href="https://chat.clinicalguidelines.io" target="_blank">Login</a>
                 </div>
@@ -284,9 +453,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 ClinicalGuidelines.io. All rights reserved.</p>
+                <p>&copy; 2026 ClinicalGuidelines.io. All rights reserved.</p>
                 <p class="footer-legal-links"><a href="privacy.html">Privacy Policy</a> <span class="separator">|</span> <a href="delete-account.html">Delete Account</a></p>
-                <p class="disclaimer"><strong>Disclaimer:</strong> This platform is an independent research initiative for the validation of AI in clinical decision support. All guideline content is processed for demonstration and validation purposes only.</p>
+                <p class="disclaimer"><strong>Disclaimer:</strong> This platform is an independent research initiative for the validation of AI in clinical decision support. It is not a substitute for clinician judgment, institutional policy, or formal society guidance.</p>
             </div>
         </div>
     </footer>

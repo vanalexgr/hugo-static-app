@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false, // <--- CHANGED TO FALSE FOR MOBILE
+                maintainAspectRatio: false,
                 plugins: {
                     title: {
                         display: true,
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.mission-card, .stat-card, .feature, .process-step, .team-member').forEach(el => {
+    document.querySelectorAll('.proof-card, .mission-card, .stat-card, .process-step, .publication-card, .presentation-card, .endorsement-card, .team-member').forEach(el => {
         el.classList.add('animate-element');
         observer.observe(el);
     });

@@ -5,8 +5,8 @@
         <meta name="referrer" content="origin">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Agentic clinical decision support for vascular surgery, grounded in 14 ESVS guidelines with context-aware clarification and citation-grade evidence.">
-        <title>ClinicalGuidelines.io | Agentic Vascular Guideline Companion</title>
+        <meta name="description" content="A retrieval-augmented research tool over 14 published ESVS guidelines. For research and evaluation only; not a medical device and not for clinical use.">
+        <title>ClinicalGuidelines.io | ESVS Guideline Research Tool</title>
 
         <link rel="icon" type="image/png" href="attached_assets/favicon.ico">
         <link rel="apple-touch-icon" href="attached_assets/favicon.ico">
@@ -29,7 +29,7 @@
             </button>
             <div class="nav-links">
                 <a href="#mission">Platform</a>
-                <a href="#evidence">Validation</a>
+                <a href="#evidence">Research</a>
                 <a href="#technology">Architecture</a>
                 <a href="#publications">Publications</a>
                 <a href="#presentations">Presentations</a>
@@ -45,16 +45,17 @@
             <div class="hero-copy">
                 <div class="badge-group">
                     <span class="badge">Research Platform</span>
-                    <span class="badge-highlight">Published in Annals of Vascular Surgery</span>
+                    <span class="badge-highlight">Earlier study: Annals of Vascular Surgery</span>
                     <span class="badge-highlight-alt">14 ESVS Guidelines Unified</span>
                 </div>
-                <p class="hero-kicker">Multi-guideline decision support for vascular surgery</p>
-                <h1>From Static Chatbot to Agentic Clinical Companion</h1>
-                <p class="hero-subtitle">ClinicalGuidelines.io is being re-engineered from a single-guideline GraphRAG assistant into a context-aware vascular surgery agent that routes across 14 guidelines, asks for missing clinical details, and responds with citation-grade evidence.</p>
+                <p class="hero-kicker">Research over published vascular surgery guidelines</p>
+                <h1>ESVS Guideline Research Tool</h1>
+                <p class="hero-subtitle" id="research-use-notice">For research and evaluation only. Not a medical device and not for clinical use. Do not enter real patient-identifiable information. Responses are generated from published ESVS guidelines and have not been validated for clinical accuracy.</p>
+                <p class="hero-subtitle">ClinicalGuidelines.io is a retrieval-augmented clinical decision support tool over 14 ESVS guidelines.</p>
                 <div class="cta-group">
-                    <a href="#evidence" class="btn-secondary">View Validation</a>
+                    <a href="#evidence" class="btn-secondary">View Research</a>
                     <a href="#publications" class="btn-primary">See the Publications</a>
-                    <a href="#contact" class="btn-tertiary">Request Beta Access</a>
+                    <a href="#contact" class="btn-tertiary">Request Research Access</a>
                 </div>
                 <div class="hero-store">
                     <a href="https://apps.apple.com/us/app/clinical-guidelines-ai/id6757233040" target="_blank" class="app-store-btn" aria-label="Download on the App Store">
@@ -64,26 +65,26 @@
             </div>
             <aside class="hero-panel">
                 <p class="panel-eyebrow">Platform Features</p>
-                <h2>A vascular surgery companion built for the real structure of bedside decision-making</h2>
+                <h2>Retrieval across 14 ESVS guidelines</h2>
                 <div class="panel-stat-list">
                     <div class="panel-stat">
                         <span class="panel-stat-value">Guideline Router</span>
-                        <span class="panel-stat-label">Directs each request to the correct vascular guideline domain before evidence is retrieved.</span>
+                        <span class="panel-stat-label">Routes requests among the 14 ESVS guidelines before retrieval.</span>
                     </div>
                     <div class="panel-stat">
                         <span class="panel-stat-value">Context Gate</span>
-                        <span class="panel-stat-label">Blocks incomplete patient cases and asks for the missing clinical parameters needed for a safe answer.</span>
+                        <span class="panel-stat-label">Requests missing clinical detail in predefined scenarios. This check does not cover all presentations.</span>
                     </div>
                     <div class="panel-stat">
                         <span class="panel-stat-value">Dual Retrieval</span>
-                        <span class="panel-stat-label">Combines narrative reasoning with structured recommendation chunks to preserve citation-grade evidence.</span>
+                        <span class="panel-stat-label">Retrieves narrative text and structured recommendations from published guidelines.</span>
                     </div>
                     <div class="panel-stat">
-                        <span class="panel-stat-value">PHI-safe</span>
-                        <span class="panel-stat-label">Applies de-identification and multi-turn state checks before downstream reasoning and retrieval.</span>
+                        <span class="panel-stat-value">Guideline Scope</span>
+                        <span class="panel-stat-label">The system is constrained to 14 ESVS guidelines and will decline questions outside them.</span>
                     </div>
                 </div>
-                <p class="panel-note">The goal is not a generic chatbot. It is a clinical interface that asks better questions, routes more intelligently, and answers with verifiable source control.</p>
+                <p class="panel-note">Its answers have not been assessed for clinical acceptability by expert reviewers; that evaluation is planned.</p>
             </aside>
         </div>
     </header>
@@ -93,19 +94,19 @@
             <div class="proof-grid">
                 <div class="proof-card">
                     <span class="proof-value">14</span>
-                    <p class="proof-label">ESVS guideline books aggregated into one unified vascular decision-support environment.</p>
+                    <p class="proof-label">Published ESVS guidelines form the system's retrieval scope.</p>
                 </div>
                 <div class="proof-card">
                     <span class="proof-value">Router</span>
-                    <p class="proof-label">Identifies the correct guideline pathway instead of forcing clinicians to search manually.</p>
+                    <p class="proof-label">Routes requests among the included guidelines.</p>
                 </div>
                 <div class="proof-card">
                     <span class="proof-value">Context Gate</span>
-                    <p class="proof-label">Intercepts underspecified cases before recommendation output is allowed to proceed.</p>
+                    <p class="proof-label">Requests missing detail in predefined scenarios; coverage is incomplete.</p>
                 </div>
                 <div class="proof-card">
-                    <span class="proof-value">Traceability</span>
-                    <p class="proof-label">Recommendation-grade evidence is surfaced with preserved source alignment and citation logic.</p>
+                    <span class="proof-value">Sources</span>
+                    <p class="proof-label">Retrieval uses narrative text and structured recommendations.</p>
                 </div>
             </div>
         </div>
@@ -113,36 +114,36 @@
 
     <section id="mission" class="section-light">
         <div class="container">
-            <h2>The System Triages Queries Like a Vascular Consultant</h2>
-            <p class="section-intro">The core shift is not only better retrieval. The platform now decides what kind of clinical question it has received, whether the case is answerable, and whether critical context is missing before advice is returned.</p>
+            <h2>Query Handling</h2>
+            <p class="section-intro">The system handles guideline questions and requests missing clinical detail in predefined scenarios. This check does not cover all presentations.</p>
             <div class="mission-grid">
                 <div class="mission-card">
                     <div class="mission-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"></path><path d="M4 12h10"></path><path d="M4 19h7"></path><path d="M18 12l2 2 4-4"></path></svg>
                     </div>
                     <h3>Knowledge Questions</h3>
-                    <p>Pure guideline questions proceed directly to routed retrieval, producing concise answers grounded in the most relevant source sections.</p>
+                    <p>Guideline questions proceed to retrieval from the included sources.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.81 0 3.5.53 4.91 1.45"></path></svg>
                     </div>
-                    <h3>Complete Patient Cases</h3>
-                    <p>When mandatory clinical variables are present, the case is validated, routed, and answered with traceable recommendation-level justification.</p>
+                    <h3>Specified Research Cases</h3>
+                    <p>Cases with the parameters requested by the system proceed to retrieval.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4"></path><path d="M12 16h.01"></path><circle cx="12" cy="12" r="9"></circle></svg>
                     </div>
-                    <h3>Incomplete Patient Cases</h3>
-                    <p>A dedicated Context Gate intercepts unsafe or underspecified scenarios and generates structured clarification prompts instead of premature recommendations.</p>
+                    <h3>Missing Clinical Detail</h3>
+                    <p>The Context Gate requests missing clinical detail in predefined scenarios; it does not cover all presentations.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                     </div>
-                    <h3>Protected Clinical Text</h3>
-                    <p>PHI de-identification and multi-turn change detection keep the pipeline focused on clinical reasoning while reducing downstream privacy and state-tracking risks.</p>
+                    <h3>Questions Outside Scope</h3>
+                    <p>The system will decline questions outside the 14 ESVS guidelines.</p>
                 </div>
             </div>
         </div>
@@ -150,29 +151,29 @@
 
     <section id="evidence" class="section-dark">
         <div class="container">
-            <h2>The Previous Study Established the Validation Baseline</h2>
-            <p class="section-intro">Before the move to a multi-guideline agentic system, the original guideline-locked application was benchmarked against expert-level answers and demonstrated non-inferior performance with explicit citation control.</p>
+            <h2>Research and Evaluation</h2>
+            <p class="section-intro">The 14-guideline system has been evaluated in a benchmark study. The manuscript is under review at JAMIA. The chart below relates to the earlier single-guideline application.</p>
             
             <div class="chart-container">
                 <canvas id="benchmarkChart"></canvas>
             </div>
-            <p class="evidence-note">This published validation work is the foundation for the new platform layer now being extended into multi-guideline, context-aware vascular decision support.</p>
+            <p class="evidence-note">The earlier study does not establish clinical accuracy for the 14-guideline system. Its answers have not been assessed for clinical acceptability by expert reviewers; that evaluation is planned.</p>
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h3>90.5%</h3>
-                    <p>AI Performance Score</p>
-                    <small>vs 77.8% for committee exemplars</small>
+                    <h3>14</h3>
+                    <p>ESVS Guidelines</p>
+                    <small>The system's retrieval scope</small>
                 </div>
                 <div class="stat-card">
-                    <h3>Non-Inferior</h3>
-                    <p>Across All 12 Metrics</p>
-                    <small>p &lt; 0.001 safety margin</small>
+                    <h3>Benchmark</h3>
+                    <p>Evaluation Study</p>
+                    <small>Manuscript under review at JAMIA</small>
                 </div>
                 <div class="stat-card">
-                    <h3>Zero</h3>
-                    <p>Hallucinations</p>
-                    <small>100% citation lock-in</small>
+                    <h3>Planned</h3>
+                    <p>Expert Assessment</p>
+                    <small>Clinical acceptability has not been assessed</small>
                 </div>
             </div>
         </div>
@@ -180,51 +181,58 @@
 
     <section id="technology" class="section-white">
         <div class="container">
-            <h2>Architecture That Behaves Like a Clinical Companion</h2>
-            <p class="section-intro">The new system moves beyond passive retrieval. It interprets intent, checks whether the case is sufficiently specified, and only then decides how to retrieve and frame the evidence.</p>
+            <h2>Retrieval Architecture</h2>
+            <p class="section-intro">The pipeline incorporates query interpretation, guideline routing, clarification prompts, and retrieval from narrative text and structured recommendations.</p>
             <div class="process-grid">
                 <div class="process-step">
                     <span class="process-number">01</span>
                     <h3>Pre-retrieval interpretation</h3>
-                    <p>The incoming query is classified as a knowledge request, a complete case, or an incomplete case requiring clarification.</p>
+                    <p>The incoming query is classified as a guideline question or a case for which clinical detail may be requested.</p>
                 </div>
                 <div class="process-step">
                     <span class="process-number">02</span>
                     <h3>Guideline Router Service</h3>
-                    <p>The request is directed across the correct guideline domain rather than forcing the user to know where the answer lives.</p>
+                    <p>The router selects among the 14 included ESVS guidelines.</p>
                 </div>
                 <div class="process-step">
                     <span class="process-number">03</span>
                     <h3>Context Gate</h3>
-                    <p>Mandatory clinical parameters are checked before advice is produced, preventing unsafe recommendations from underspecified cases.</p>
+                    <p>The system requests missing clinical detail before advising, but this check does not cover all presentations.</p>
                 </div>
                 <div class="process-step">
                     <span class="process-number">04</span>
                     <h3>Dual-channel retrieval</h3>
-                    <p>Narrative chunks provide nuance while structured recommendation chunks carry the citation-grade decision signal.</p>
+                    <p>Retrieval uses both narrative guideline text and structured recommendations.</p>
                 </div>
                 <div class="process-step">
                     <span class="process-number">05</span>
-                    <h3>Traceable response layer</h3>
-                    <p>Outputs return with source-linked justification, preserved traceability, and resistance to cross-guideline contamination.</p>
+                    <h3>Response generation</h3>
+                    <p>Responses are generated from published ESVS guidelines and have not been validated for clinical accuracy.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="limitations" class="section-light" aria-labelledby="limitations-heading">
+        <div class="container">
+            <h2 id="limitations-heading">Known limitations.</h2>
+            <p class="section-intro">The system is constrained to 14 ESVS guidelines and will decline questions outside them. It requests missing clinical detail before advising, but this check does not cover all presentations. Its answers have not been assessed for clinical acceptability by expert reviewers; that evaluation is planned. PHI de-identification has not been tested on real data.</p>
+        </div>
+    </section>
+
     <section class="section-light">
         <div class="container">
-            <h2>Prospective Multicenter Validation with HSVES</h2>
-            <p class="section-intro">The next stage is designed to move from internal technical validation to real-world case testing in conjunction with the Hellenic Society of Vascular and Endovascular Surgery.</p>
+            <h2>Planned Evaluation</h2>
+            <p class="section-intro">Assessment of the answers for clinical acceptability by expert reviewers is planned.</p>
             <div class="endorsement-card">
                 <div class="endorsement-logo-wrap">
                     <img src="attached_assets/hsves-logo.png" alt="Hellenic Society of Vascular and Endovascular Surgery" class="endorsement-logo">
                 </div>
                 <div class="endorsement-content">
-                    <p class="endorsement-kicker">Clinical validation pathway</p>
-                    <h3>HSVES brings the bridge to real-world vascular practice</h3>
-                    <p>The proposed prospective program is centered on multicenter assessment against real vascular surgery cases, with the explicit goal of testing whether an auditable, multi-guideline agent can support decision quality at the bedside without sacrificing transparency or clinician control.</p>
-                    <p>The strategic value is simple: an agent that asks for missing details before it speaks is materially closer to the workflow of an experienced consultant than a static chatbot that only retrieves text.</p>
+                    <p class="endorsement-kicker">Research plans</p>
+                    <h3>Hellenic Society of Vascular and Endovascular Surgery</h3>
+                    <p>Prospective multicenter evaluation in conjunction with HSVES is planned.</p>
+                    <p>The system's answers have not been assessed for clinical acceptability by expert reviewers.</p>
                 </div>
             </div>
         </div>
@@ -233,7 +241,7 @@
     <section id="publications" class="section-white">
         <div class="container">
             <h2>Publications</h2>
-            <p class="section-intro">Peer-reviewed work tracing the evolution from general-purpose LLM benchmarking to guideline-locked clinical decision support in vascular surgery.</p>
+            <p class="section-intro">Earlier publications from the research group. The benchmark manuscript for the 14-guideline system is under review at JAMIA.</p>
             <div class="publications-list">
                 <article class="publication-card">
                     <div class="pub-number">1</div>
@@ -248,7 +256,7 @@
                             <a href="https://doi.org/10.1016/j.avsg.2024.11.014" target="_blank">DOI</a>
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39586530/" target="_blank">PubMed</a>
                         </div>
-                        <p class="pub-note">Established the early benchmark for how foundation models handle vascular surgery decision-making before the guideline-locked architecture was introduced.</p>
+                        <p class="pub-note">An earlier experimental study using GPT-4.</p>
                     </div>
                 </article>
 
@@ -266,7 +274,7 @@
                             <a href="https://doi.org/10.1016/j.avsg.2026.03.020" target="_blank">DOI</a>
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41895597/" target="_blank">PubMed</a>
                         </div>
-                        <p class="pub-note">Published in the Annals of Vascular Surgery, this study validated standardized expert-level interpretation of vascular clinical practice guidelines and forms the launchpad for the next agentic, multi-guideline phase.</p>
+                        <p class="pub-note">This publication concerns the earlier single-guideline application. It does not establish clinical accuracy for the 14-guideline system.</p>
                     </div>
                 </article>
             </div>
@@ -276,7 +284,7 @@
     <section id="presentations" class="section-light">
         <div class="container">
             <h2>Presentations</h2>
-            <p class="section-intro">ClinicalGuidelines.io has also been presented across major vascular meetings, moving the platform from publication into live international discussion.</p>
+            <p class="section-intro">Conference presentations from the research group. Titles are reproduced as presented and do not establish clinical accuracy or regulatory approval of the system.</p>
             <div class="presentations-grid">
                 <article class="presentation-card featured-presentation">
                     <div class="presentation-meta">
@@ -334,7 +342,7 @@
                     <h3>SITE Barcelona 2025</h3>
                     <p class="presentation-location">Barcelona, Spain</p>
                     <p class="presentation-date">15-17 October 2025</p>
-                    <p class="presentation-note">Showcased the ClinicalGuidelines.io concept within the endovascular meeting circuit, reinforcing interest in guideline-aware vascular AI beyond the manuscript setting.</p>
+                    <p class="presentation-note">Presentation of the ClinicalGuidelines.io concept.</p>
                 </article>
 
                 <article class="presentation-card">
@@ -367,8 +375,8 @@
             <div class="team-grid">
                 <div class="team-member">
                     <h3>Vangelis Alexiou, MD, PhD</h3>
-                    <p class="member-role">Vascular Surgeon & Developer</p>
-                    <p class="member-affiliation">University Hospital of Ioannina, Greece</p>
+                    <p class="member-role">Assistant Professor of Vascular Surgery</p>
+                    <p class="member-affiliation">University of Patras, Greece</p>
                 </div>
                 <div class="team-member">
                     <h3>Areti Vassiliou, MD, MSc</h3>
@@ -396,8 +404,9 @@
 
     <section id="contact" class="section-cta">
         <div class="container">
-            <h2>Join the Next Validation Phase</h2>
-            <p class="section-intro">Request access to the beta or register interest as a clinical validation collaborator. Approved clinicians will be redirected to the secure chat interface.</p>
+            <h2>Request Research Access</h2>
+            <p class="section-intro">Request access for research and evaluation or register interest in the planned expert assessment.</p>
+            <p class="section-intro" id="contact-research-notice">For research and evaluation only. Not a medical device and not for clinical use. Do not enter real patient-identifiable information. Responses are generated from published ESVS guidelines and have not been validated for clinical accuracy.</p>
             
             <form class="contact-form" action="https://formsubmit.co/v.alexiou@aibs.gr" method="POST" enctype="multipart/form-data">
                 
@@ -437,7 +446,7 @@
                     <label for="message">Message (Optional)</label>
                     <textarea id="message" name="message" rows="4"></textarea>
                 </div>
-                <button type="submit" class="btn-primary btn-large">Request Beta Access</button>
+                <button type="submit" class="btn-primary btn-large">Request Research Access</button>
             </form>
         </div>
     </section>
@@ -452,13 +461,13 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <img src="attached_assets/logo.png" alt="ClinicalGuidelines.io" class="footer-logo">
-                    <p>Agentic, guideline-locked clinical decision support for vascular surgery.</p>
+                    <p>A research tool over 14 published ESVS guidelines.</p>
                     <p class="contact-email"><a href="mailto:support@clinicalguidelines.io">support@clinicalguidelines.io</a></p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <a href="#mission">Platform</a>
-                    <a href="#evidence">Validation</a>
+                    <a href="#evidence">Research</a>
                     <a href="#technology">Architecture</a>
                     <a href="#publications">Publications</a>
                     <a href="#presentations">Presentations</a>
@@ -467,15 +476,15 @@
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
-                    <p>VG Alexiou, Ioannina University Hospital</p>
-                    <p>Ioannina, Greece</p>
+                    <p>VG Alexiou, Assistant Professor of Vascular Surgery</p>
+                    <p>University of Patras, Patras, Greece</p>
                     <p>+30 69 9303 1175</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 ClinicalGuidelines.io. All rights reserved.</p>
                 <p class="footer-legal-links"><a href="privacy.html">Privacy Policy</a> <span class="separator">|</span> <a href="delete-account.html">Delete Account</a></p>
-                <p class="disclaimer"><strong>Disclaimer:</strong> This platform is an independent research initiative for the validation of AI in clinical decision support. It is not a substitute for clinician judgment, institutional policy, or formal society guidance.</p>
+                <p class="disclaimer">For research and evaluation only. Not a medical device and not for clinical use. Do not enter real patient-identifiable information. Responses are generated from published ESVS guidelines and have not been validated for clinical accuracy.</p>
             </div>
         </div>
     </footer>

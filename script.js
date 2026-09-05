@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 labels: ['Accuracy', 'Completeness', 'Evidence Justification'],
                 datasets: [
                     {
-                        label: 'AI Companion App',
+                        label: 'Earlier single-guideline app',
                         data: [90.5, 85, 95],
                         backgroundColor: '#007BFF',
                         borderRadius: 6,
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'AI vs. Human Expert Performance',
+                        text: 'Previous-study benchmark',
                         color: '#FFFFFF',
                         font: { family: "'Inter', sans-serif", size: 16, weight: '600' },
                         padding: { bottom: 20 }
